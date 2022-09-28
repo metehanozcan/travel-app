@@ -2,4 +2,5 @@
     <string name="app_name">travelapp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_screen_text">Where\'s your\nnext destination?</string>
 </resources>

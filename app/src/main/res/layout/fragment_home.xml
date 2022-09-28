@@ -1,19 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Home Fragment"
-        android:textSize="@dimen/_20ssp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".HomeFragment">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_350sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/home_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/welcome_screen_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_170sdp"
+                android:fontFamily="@font/source_sans_pro"
+                android:lineSpacingExtra="-2sp"
+                android:text="@string/welcome_screen_text"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="@dimen/_32ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.071"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/flights_button"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/home_screen_category_button"
+                android:elevation="25dp"
+                android:shadowColor="#FCFCFC"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="25"
+                app:backgroundTint="@null"
+                app:cornerRadius="@dimen/_8sdp"
+                app:icon="@drawable/filled_plane"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="@dimen/_32sdp"
+                app:layout_constraintEnd_toStartOf="@+id/hotels_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcome_screen_text" />
+
+            <TextView
+                android:id="@+id/flights_button_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="Flights"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/flights_button"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/flights_button"
+                app:layout_constraintTop_toBottomOf="@+id/flights_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/hotels_button"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/home_screen_category_button"
+                android:elevation="25dp"
+                app:backgroundTint="@null"
+                app:cornerRadius="@dimen/_8sdp"
+                app:icon="@drawable/filled_hotel"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="@dimen/_32sdp"
+                app:layout_constraintEnd_toStartOf="@+id/cars_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/flights_button"
+                app:layout_constraintTop_toBottomOf="@+id/welcome_screen_text" />
+
+            <TextView
+                android:id="@+id/hotels_button_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="Hotels"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/hotels_button"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/hotels_button"
+                app:layout_constraintTop_toBottomOf="@+id/hotels_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cars_button"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/home_screen_category_button"
+                android:elevation="25dp"
+                app:backgroundTint="@null"
+                app:cornerRadius="@dimen/_8sdp"
+                app:icon="@drawable/filled_car"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="@dimen/_32sdp"
+                app:layout_constraintEnd_toStartOf="@+id/taxi_button"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/hotels_button"
+                app:layout_constraintTop_toBottomOf="@+id/welcome_screen_text" />
+
+            <TextView
+                android:id="@+id/cars_button_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="Cars"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/cars_button"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/cars_button"
+                app:layout_constraintTop_toBottomOf="@+id/cars_button" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/taxi_button"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/home_screen_category_button"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:elevation="25dp"
+                app:backgroundTint="@null"
+                app:cornerRadius="@dimen/_8sdp"
+                app:icon="@drawable/filled_taxi"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconSize="@dimen/_32sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cars_button"
+                app:layout_constraintTop_toBottomOf="@+id/welcome_screen_text" />
+
+            <TextView
+                android:id="@+id/taxi_button_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="Taxi"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintEnd_toEndOf="@+id/taxi_button"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/taxi_button"
+                app:layout_constraintTop_toBottomOf="@+id/taxi_button" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
