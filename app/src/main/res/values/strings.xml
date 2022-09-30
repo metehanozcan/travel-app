@@ -3,4 +3,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="welcome_screen_text">Where\'s your\nnext destination?</string>
+    <string name="search_headline_text">Search</string>
+    <string name="search_text_input_hint_text">Where next?</string>
+    <string name="top_destinations_city_text">Tokyo</string>
+    <string name="top_destinations_country_text">Japan</string>
+    <string name="search_attractions_type_text">HOTEL</string>
+    <string name="guide_screen_headline">Guide</string>
+    <string name="trip_plan_screen_headline">Trip Plan</string>
 </resources>

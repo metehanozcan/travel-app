@@ -10,13 +10,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".HomeFragment">
+        tools:context=".presentation.home.HomeFragment">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_350sdp"
+            android:layout_height="@dimen/_310sdp"
             android:scaleType="fitXY"
+            android:shadowColor="@color/black"
+            android:shadowRadius="20"
             android:src="@drawable/home_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -27,7 +29,7 @@
             android:id="@+id/welcome_screen_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_170sdp"
+            android:layout_marginTop="@dimen/_135sdp"
             android:fontFamily="@font/source_sans_pro"
             android:lineSpacingExtra="-2sp"
             android:text="@string/welcome_screen_text"
@@ -148,12 +150,12 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/taxi_button"
-            android:clipChildren="false"
-            android:clipToPadding="false"
             android:layout_width="@dimen/_50sdp"
             android:layout_height="@dimen/_50sdp"
             android:layout_marginTop="8dp"
             android:background="@drawable/home_screen_category_button"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:elevation="25dp"
             app:backgroundTint="@null"
             app:cornerRadius="@dimen/_8sdp"
@@ -181,6 +183,60 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/taxi_button"
             app:layout_constraintTop_toBottomOf="@+id/taxi_button" />
+
+        <TextView
+            android:id="@+id/home_deals_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:fontFamily="@font/source_sans_pro"
+            android:text="DEALS"
+            android:textColor="#181A25"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginTop="6dp"
+            android:minHeight="?actionBarSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/home_deals_text"
+            app:tabGravity="fill"
+            app:tabMode="fixed" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/CatalogView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_110sdp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabs" />
+
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/recyclerView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/_130sdp"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginEnd="1dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="1.0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tabs"-->
+<!--            app:padding="@dimen/_7ssp"-->
+<!--            tools:listitem="@layout/home_list_item" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
