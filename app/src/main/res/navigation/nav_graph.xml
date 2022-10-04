@@ -12,17 +12,17 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.kenbu.travelapp.SearchFragment"
+        android:name="com.kenbu.travelapp.presentation.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/tripPlanFragment"
-        android:name="com.kenbu.travelapp.TripPlanFragment"
+        android:name="com.kenbu.travelapp.presentation.tripplan.TripPlanFragment"
         android:label="fragment_trip_plan"
         tools:layout="@layout/fragment_trip_plan" />
     <fragment
         android:id="@+id/guideFragment"
-        android:name="com.kenbu.travelapp.GuideFragment"
+        android:name="com.kenbu.travelapp.presentation.guide.GuideFragment"
         android:label="fragment_guide"
         tools:layout="@layout/fragment_guide" />
 </navigation>

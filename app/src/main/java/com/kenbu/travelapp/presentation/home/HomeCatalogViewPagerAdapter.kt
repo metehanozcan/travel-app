@@ -1,7 +1,7 @@
 package com.kenbu.travelapp.presentation.home
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.kenbu.travelapp.SearchFragment
+import com.kenbu.travelapp.presentation.dummy.Dummy
 
 class HomeCatalogViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
@@ -10,12 +10,12 @@ class HomeCatalogViewPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fra
     }
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> SearchFragment()
-            1 -> SearchFragment()
-            2 -> SearchFragment()
-            3->  SearchFragment()
+            0 -> Dummy()
+            1 -> Dummy()
+            2 -> Dummy()
+            3->  Dummy()
             else -> {
-                SearchFragment()
+                Dummy()
             }
         }
     }

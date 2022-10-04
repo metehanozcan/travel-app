@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-
+    //Home screen recyclerview item shape
     <style name="ShapeAppearanceOverlay.MyApp.Button.Rounded" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerFamilyTopRight">cut</item>
@@ -9,14 +8,25 @@
         <item name="cornerSizeTopLeft">8dp</item>
         <item name="cornerSizeBottomLeft">8dp</item>
     </style>
-
+    //ImageView Round Corner Style
     <style name="roundedCornersImageView" parent="">
     <item name="cornerFamily">rounded</item>
     <item name="cornerSize">@dimen/_8sdp</item>     </style>
-
+    //Search Screen Bookmark Button Style
     <style name="ShapeAppearanceOverlay.MyApp.Button.Circle" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+    //Tabslayout Style Home And Trip Plan Screen
+    <style name="tabsLayoutTextStyle" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="fontFamily">@font/source_sans_pro_bold</item>
+        <item name="colorOnSurface">#C2C5D6</item>
+    </style>
 
+    //Search Box Stroke
+    <style name="SearchTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/search_text_input_stroke</item>
+        <item name="boxStrokeWidth">1.8dp</item>
+    </style>
 </resources>
