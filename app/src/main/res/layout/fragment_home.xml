@@ -58,8 +58,8 @@
                 app:icon="@drawable/filled_plane"
                 app:iconGravity="textStart"
                 app:iconPadding="0dp"
-                app:iconTint="#FFF5F6"
                 app:iconSize="@dimen/_32sdp"
+                app:iconTint="#FFF5F6"
                 app:layout_constraintEnd_toStartOf="@+id/hotels_button"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -122,9 +122,9 @@
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_70sdp"
                 android:layout_marginTop="-10dp"
-                android:stateListAnimator="@null"
                 android:background="@drawable/home_screen_category_button"
                 android:elevation="25dp"
+                android:stateListAnimator="@null"
                 app:backgroundTint="#5BFFFFFF"
                 app:cornerRadius="@dimen/_8sdp"
                 app:icon="@drawable/filled_car"
@@ -218,35 +218,63 @@
                 app:tabInlineLabel="true"
                 app:tabSelectedTextColor="@color/pink"
                 app:tabTextAppearance="@style/tabsLayoutTextStyle"
-                app:tabTextColor="#C2C5D6" />
+                app:tabTextColor="#C2C5D6">
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/CatalogView"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_130sdp"
-                android:layout_marginStart="@dimen/_12sdp"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tabs" />
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tab_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="All"
+                    />
 
-            <!--        <androidx.recyclerview.widget.RecyclerView-->
-            <!--            android:id="@+id/recyclerView"-->
-            <!--            android:layout_width="match_parent"-->
-            <!--            android:layout_height="@dimen/_130sdp"-->
-            <!--            android:layout_marginStart="5dp"-->
-            <!--            android:layout_marginTop="20dp"-->
-            <!--            android:layout_marginEnd="1dp"-->
-            <!--            android:orientation="horizontal"-->
-            <!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
-            <!--            app:layout_constraintEnd_toEndOf="parent"-->
-            <!--            app:layout_constraintHorizontal_bias="1.0"-->
-            <!--            app:layout_constraintStart_toStartOf="parent"-->
-            <!--            app:layout_constraintTop_toBottomOf="@+id/tabs"-->
-            <!--            app:padding="@dimen/_7ssp"-->
-            <!--            tools:listitem="@layout/home_list_item" />-->
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tab_flights"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Flights" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tab_hotels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hotels" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tab_transportations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Transportations" />
+
+            </com.google.android.material.tabs.TabLayout>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_130sdp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="1dp"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tabs"
+
+                         />
+
+            <!--            <androidx.viewpager2.widget.ViewPager2-->
+            <!--                android:id="@+id/CatalogView"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="@dimen/_130sdp"-->
+            <!--                android:layout_marginStart="@dimen/_12sdp"-->
+            <!--                android:layout_marginTop="16dp"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintHorizontal_bias="0.0"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/tabs" />-->
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

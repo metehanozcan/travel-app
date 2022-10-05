@@ -6,41 +6,60 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.google.android.material.tabs.TabLayoutMediator
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewModelScope
 import com.kenbu.travelapp.databinding.FragmentHomeBinding
+import com.kenbu.travelapp.presentation.home.adapter.HomeAdapter
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var adapter: HomeAdapter
+    private val viewModel: HomeViewModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
-        // Inflate the layout for this fragment
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.flightsButton.setOnClickListener {
-            Log.v("Test", "Test124124")
-        }
-        val adapter = HomeCatalogViewPagerAdapter(this)
-        binding.CatalogView.adapter = adapter
-        TabLayoutMediator(
-            binding.tabs, binding.CatalogView
-        ) { tab, position ->
-            if (position == 0) {
-                tab.text = "All"
-            } else if (position == 1) {
-                tab.text = "Flights"
-            } else if (position == 2) {
-                tab.text = "Hotels"
-            } else {
-                tab.text = "Transportations"
+        setupRecyclerView()
+        observeData()
 
-            }
-        }.attach()
     }
+
+
+    private fun observeData(){
+        viewModel.viewModelScope.launch {
+            viewModel.uiState.collect{
+                it.isLoading.let {
+                    if(!it){
+                       Log.d("test1111","tessssssss")
+                    }else{
+                        Log.d("test2222","tessssssss")
+                    }
+                }
+
+                it.homeItems.let {list ->
+                    adapter.differ.submitList(list)
+                }
+            }
+        }
+
+    }
+    private fun setupRecyclerView() {
+        adapter = HomeAdapter()
+        binding.apply {
+            binding.recyclerView.adapter = adapter
+        }
+    }
+
+
 }
