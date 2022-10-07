@@ -1,17 +1,22 @@
 //package com.kenbu.travelapp.data.local.dao
 //
 //
-//import androidx.lifecycle.LiveData
 //import androidx.room.*
-//import com.kenbu.travelapp.domain.model.TravelAppModel
+//import com.kenbu.travelapp.domain.model.TravelAppModelItem
+//import kotlinx.coroutines.flow.Flow
+//
 //@Dao
 //interface TravelListDAO {
-//    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    suspend fun insertTravelData(travelData: TravelAppModel)
 //
-//    @Query("SELECT * FROM travelData")
-//    fun getAllTravelData(): LiveData<List<TravelAppModel>>
+//    @Query("SELECT * FROM travel_table")
+//    fun getAllTravelData(): Flow<List<TravelAppModelItem>>
+//
+//    @Insert(onConflict = OnConflictStrategy.REPLACE)
+//    suspend fun insertTravelData(travelData: TravelAppModelItem)
+//
+//    @Update
+//    suspend fun update(travelData: TravelAppModelItem)
 //
 //    @Delete
-//    suspend fun deleteProduct(travelData: TravelAppModel)
+//    suspend fun delete(travelData: TravelAppModelItem)
 //}

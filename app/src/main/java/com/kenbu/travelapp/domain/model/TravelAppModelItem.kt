@@ -1,5 +1,13 @@
 package com.kenbu.travelapp.domain.model
 
+import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
+import java.text.DateFormat
+
+@Entity(tableName = "travel_table")
+@Parcelize
 data class TravelAppModelItem(
     val category: String,
     val city: String,
@@ -8,5 +16,12 @@ data class TravelAppModelItem(
     val id: String,
     val images: List<TravelAppModelItemImage>,
     val isBookmark: Boolean,
-    val title: String
-)
+    val title: String,
+    val dateIn:String?,
+    val dateOut:String?,
+    @PrimaryKey(autoGenerate= true) val id_:Int = 0
+): Parcelable{
+    val createdDateFormatted:String
+        get() = DateFormat.getDateInstance().format(dateIn)
+}
+

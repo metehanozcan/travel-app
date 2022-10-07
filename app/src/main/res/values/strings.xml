@@ -12,4 +12,5 @@
     <string name="trip_plan_screen_headline">Trip Plan</string>
     <string name="guide_headline_text">Guide</string>
     <string name="guide_search_text_input_hint_text">A country, a city, a place... or anything</string>
+    <string name="top_destinations_subtitle">TOP DESTINATIONS</string>
 </resources>

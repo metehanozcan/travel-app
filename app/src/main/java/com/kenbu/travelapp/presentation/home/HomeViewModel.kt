@@ -1,6 +1,5 @@
 package com.kenbu.travelapp.presentation.home
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
@@ -22,6 +21,9 @@ class HomeViewModel @Inject constructor(private val homeUseCase: HomeUseCase) : 
 
     init {
         getHomeData()
+        getFlightData()
+        getHotelData()
+        getTransportationData()
     }
 
     private fun getHomeData() {
@@ -30,7 +32,6 @@ class HomeViewModel @Inject constructor(private val homeUseCase: HomeUseCase) : 
                 when (resource) {
                     is Resource.Success -> {
                         _uiState.update {
-                            Log.d("test", resource.data.toString())
                             it.copy(homeItems = resource.data as ArrayList<TravelAppModelItem>?)
                         }
                     }
@@ -48,5 +49,79 @@ class HomeViewModel @Inject constructor(private val homeUseCase: HomeUseCase) : 
             }
         }
     }
+
+    private fun getFlightData() {
+        viewModelScope.launch {
+            homeUseCase.getTravelFlightData().collect { resource ->
+                when (resource) {
+                    is Resource.Success -> {
+                        _uiState.update {
+                            it.copy(categoryFlightItems = resource.data as ArrayList<TravelAppModelItem>?)
+                        }
+                    }
+                    is Resource.Error -> {
+                        _uiState.update {
+                            it.copy(error = resource.message as String)
+                        }
+                    }
+                    is Resource.Loading -> {
+                        _uiState.update {
+                            it.copy(isLoading = true)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun getHotelData() {
+        viewModelScope.launch {
+            homeUseCase.getTravelHotelData().collect { resource ->
+                when (resource) {
+                    is Resource.Success -> {
+                        _uiState.update {
+                            it.copy(categoryHotelItems = resource.data as ArrayList<TravelAppModelItem>?)
+                        }
+                    }
+                    is Resource.Error -> {
+                        _uiState.update {
+                            it.copy(error = resource.message as String)
+                        }
+                    }
+                    is Resource.Loading -> {
+                        _uiState.update {
+                            it.copy(isLoading = true)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun getTransportationData() {
+        viewModelScope.launch {
+            homeUseCase.getTravelTransportationData().collect { resource ->
+                when (resource) {
+                    is Resource.Success -> {
+                        _uiState.update {
+                            it.copy(categoryTransportationItems = resource.data as ArrayList<TravelAppModelItem>?)
+                        }
+                    }
+                    is Resource.Error -> {
+                        _uiState.update {
+                            it.copy(error = resource.message as String)
+                        }
+                    }
+                    is Resource.Loading -> {
+                        _uiState.update {
+                            it.copy(isLoading = true)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
 
 }

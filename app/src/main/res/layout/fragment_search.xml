@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
 
         <TextView
@@ -25,9 +31,9 @@
             style="@style/SearchTextInputLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_50sdp"
-            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginEnd="15dp"
             android:background="@color/white"
             android:hint="@string/search_text_input_hint_text"
             android:textColorHint="#52577A"
@@ -42,10 +48,64 @@
                 android:id="@+id/search_text_field_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/source_sans_pro"
-                android:layout_gravity="center_vertical"/>
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/source_sans_pro" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/topdestinations_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_160sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_topdestination_subtitles" />
+
+        <TextView
+            android:id="@+id/search_topdestination_subtitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:fontFamily="@font/source_sans_pro_semibold"
+            android:letterSpacing="-0.03"
+            android:text="@string/top_destinations_subtitle"
+            android:textAllCaps="true"
+            android:textColor="#292C3D"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintStart_toStartOf="@+id/search_text_field"
+            app:layout_constraintTop_toBottomOf="@+id/search_text_field" />
+
+        <TextView
+            android:id="@+id/search_nearby_subtitles2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/source_sans_pro_semibold"
+            android:letterSpacing="-0.03"
+            android:text="NEARBY ATTRACTIONS"
+            android:textAllCaps="true"
+            android:textColor="#292C3D"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintStart_toStartOf="@+id/search_topdestination_subtitles"
+            app:layout_constraintTop_toBottomOf="@+id/topdestinations_recyclerview" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/nearby_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_nearby_subtitles2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

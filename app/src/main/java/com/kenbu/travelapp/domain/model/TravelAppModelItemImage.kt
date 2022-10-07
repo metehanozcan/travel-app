@@ -1,8 +1,9 @@
 package com.kenbu.travelapp.domain.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class TravelAppModelItemImage(
-    val altText: Any,
-    val height: Int,
     val url: String,
-    val width: Int
-)
+):Parcelable

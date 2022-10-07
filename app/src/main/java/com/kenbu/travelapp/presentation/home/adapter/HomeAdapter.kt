@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.kenbu.travelapp.databinding.HomeScreenListItemBinding
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
+import com.kenbu.travelapp.domain.model.TravelAppModelItemImage
 import com.kenbu.travelapp.utils.download
 
 
@@ -19,14 +20,14 @@ class HomeAdapter() : RecyclerView.Adapter<HomeAdapter.HomeVH>() {
             oldItem: TravelAppModelItem,
             newItem: TravelAppModelItem
         ): Boolean {
-            return true
+            return (oldItem == newItem)
         }
 
         override fun areContentsTheSame(
             oldItem: TravelAppModelItem,
             newItem: TravelAppModelItem
         ): Boolean {
-            return true
+            return (oldItem.images[0]==newItem.images[0])
         }
     }
 

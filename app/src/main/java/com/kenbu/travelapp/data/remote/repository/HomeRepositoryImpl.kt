@@ -10,7 +10,19 @@ class HomeRepositoryImpl(private val apiService: ApiService) : HomeRepository {
 
     override suspend fun getTravelAllList(): Response<ArrayList<TravelAppModelItem>> =
         apiService.getAllTravelList()
+
+    override suspend fun getTravelFlightList(): Response<ArrayList<TravelAppModelItem>> =
+        apiService.getTravelFlightList()
+
+    override suspend fun getTravelHotelList(): Response<ArrayList<TravelAppModelItem>> =
+        apiService.getTravelHotelList()
+
+    override suspend fun getTravelTransportationList(): Response<ArrayList<TravelAppModelItem>> =
+        apiService.getTravelTransportationList()
+
 }
+
+
 //    override suspend fun getFilteredTravelList(
 //        userInput: String,
 //        homeItem: TravelAppModelItem
