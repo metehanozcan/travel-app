@@ -1,8 +1,10 @@
 package com.kenbu.travelapp.di
 
 import com.kenbu.travelapp.data.remote.ApiService
+import com.kenbu.travelapp.data.remote.repository.GuideRepositoryImpl
 import com.kenbu.travelapp.data.remote.repository.HomeRepositoryImpl
 import com.kenbu.travelapp.data.remote.repository.SearchRepositoryImpl
+import com.kenbu.travelapp.domain.repository.GuideRepository
 import com.kenbu.travelapp.domain.repository.HomeRepository
 import com.kenbu.travelapp.domain.repository.SearchRepository
 import com.kenbu.travelapp.utils.Constants.Companion.BASE_URL
@@ -51,5 +53,12 @@ class NetworkModule {
     fun provideSearchRepository(apiService: ApiService): SearchRepository {
         return SearchRepositoryImpl(apiService)
     }
+
+    @Provides
+    @Singleton
+    fun provideGuideRepository(apiService: ApiService): GuideRepository {
+        return GuideRepositoryImpl(apiService)
+    }
+
 
 }

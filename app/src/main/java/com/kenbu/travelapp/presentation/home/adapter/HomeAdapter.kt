@@ -46,6 +46,7 @@ class HomeAdapter() : RecyclerView.Adapter<HomeAdapter.HomeVH>() {
             itemImg.apply{
                 download(item.images[0].url)
             }
+
         }
     }
 

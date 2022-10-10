@@ -1,5 +1,6 @@
 package com.kenbu.travelapp.utils
 
+import android.widget.Button
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -27,3 +28,6 @@ fun ShapeableImageView.download(image: String) {
 fun downloadImage(view: ShapeableImageView, image: String) {
     view.download(image)
 }
+
+
+

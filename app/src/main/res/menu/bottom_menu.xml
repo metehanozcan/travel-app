@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/selector_home_icon"
@@ -21,5 +22,6 @@
         android:id="@+id/guideFragment"
         android:icon="@drawable/selector_guide_icon"
         android:title="Guide"
+
         />
 </menu>

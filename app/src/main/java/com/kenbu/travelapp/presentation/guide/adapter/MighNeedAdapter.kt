@@ -1,19 +1,17 @@
-package com.kenbu.travelapp.presentation.search.adapter
+package com.kenbu.travelapp.presentation.guide.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.kenbu.travelapp.databinding.SearchScreenNearbyAttractionsItemBinding
-import com.kenbu.travelapp.databinding.SearchScreenTopDestinationsItemBinding
+import com.kenbu.travelapp.databinding.GuideScreenMightNeedTheseItemBinding
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
 import com.kenbu.travelapp.utils.download
 
 
-class TopDestinationsAdapter() : RecyclerView.Adapter<TopDestinationsAdapter.TopVH>() {
-    class TopVH(val binding: SearchScreenTopDestinationsItemBinding) :
+class MighNeedAdapter() : RecyclerView.Adapter<MighNeedAdapter.MigtNeedVH>() {
+    class MigtNeedVH(val binding: GuideScreenMightNeedTheseItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     private var differCallBack = object : DiffUtil.ItemCallback<TravelAppModelItem>() {
@@ -34,28 +32,26 @@ class TopDestinationsAdapter() : RecyclerView.Adapter<TopDestinationsAdapter.Top
 
     val differ = AsyncListDiffer(this, differCallBack)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TopVH {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MigtNeedVH {
         val binding =
-            SearchScreenTopDestinationsItemBinding.inflate(
+            GuideScreenMightNeedTheseItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
             )
-        return TopVH(binding)
+        return MigtNeedVH(binding)
     }
 
-    override fun onBindViewHolder(holder: TopVH, position: Int) {
+    override fun onBindViewHolder(holder: MigtNeedVH, position: Int) {
         val item = differ.currentList[position]
         holder.binding.apply {
-            searchScreenDestinationsItemImg.apply {
-                download(item.images[0].url)
-                Log.d("item", item.images[0].url)
+            mightneedImg.apply {
+                download(item.images[0].url.toString())
             }
-            topDestinationsCityTextLayout.text = item.city
-            topDestinationsCountryText.text = item.country
+            mightneedText.text = item.city
+
         }
     }
-
 
     override fun getItemCount(): Int {
         return differ.currentList.size

@@ -15,11 +15,11 @@ data class TravelAppModelItem(
     val description: String,
     val id: String,
     val images: List<TravelAppModelItemImage>,
-    val isBookmark: Boolean,
+    var isBookmark: Boolean,
     val title: String,
     val dateIn:String?,
     val dateOut:String?,
-    @PrimaryKey(autoGenerate= true) val id_:Int = 0
+//    @PrimaryKey(autoGenerate= true) val id_:Int = 0
 ): Parcelable{
     val createdDateFormatted:String
         get() = DateFormat.getDateInstance().format(dateIn)

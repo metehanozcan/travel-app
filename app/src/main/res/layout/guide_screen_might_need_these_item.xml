@@ -9,29 +9,33 @@
     <!--    app:contentPaddingRight="@dimen/_5sdp"-->
     <!--    app:contentPaddingLeft="@dimen/_5sdp"-->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/search_screen_destinations_item_img"
+            android:id="@+id/mightneed_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/roundedCornersImageView"
-            tools:src="@drawable/home_background"
-            />
+            tools:src="@drawable/home_background" />
 
 
         <TextView
-            android:id="@+id/top_destinations_city_text_layout"
+            android:id="@+id/mightneed_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
             android:fontFamily="@font/source_sans_pro_bold"
             android:text="@string/top_destinations_city_text"
             android:textColor="@color/white"
             android:textSize="@dimen/_18ssp"
-            app:layout_constraintBottom_toBottomOf="@+id/search_screen_destinations_item_img"
+            app:layout_constraintBottom_toBottomOf="@+id/mightneed_img"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.271"
             app:layout_constraintStart_toStartOf="parent" />

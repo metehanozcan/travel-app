@@ -6,5 +6,6 @@ data class SearchUiState(
     val error: String? = null,
     val isLoading: Boolean = false,
     val topDestinationsItem: ArrayList<TravelAppModelItem>? = null,
-    val nearbyItem: ArrayList<TravelAppModelItem>? = null
+    val nearbyItem: ArrayList<TravelAppModelItem>? = null,
+    val bookMarkItem: Any? = null
 )

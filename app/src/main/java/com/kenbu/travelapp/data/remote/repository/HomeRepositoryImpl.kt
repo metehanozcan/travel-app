@@ -19,7 +19,6 @@ class HomeRepositoryImpl(private val apiService: ApiService) : HomeRepository {
 
     override suspend fun getTravelTransportationList(): Response<ArrayList<TravelAppModelItem>> =
         apiService.getTravelTransportationList()
-
 }
 
 

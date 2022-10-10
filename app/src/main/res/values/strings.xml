@@ -13,4 +13,6 @@
     <string name="guide_headline_text">Guide</string>
     <string name="guide_search_text_input_hint_text">A country, a city, a place... or anything</string>
     <string name="top_destinations_subtitle">TOP DESTINATIONS</string>
+    <string name="top_pick_articles_string">TOP-PICK ARTICLES</string>
+    <string name="might_need_these_string">MIGHT NEED THESE</string>
 </resources>
