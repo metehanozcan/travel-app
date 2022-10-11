@@ -42,6 +42,17 @@ class SearchUseCase @Inject constructor(private val searchRepository: SearchRepo
             emit(Resource.Error(e.localizedMessage))
         }
     }.flowOn(Dispatchers.IO)
+
+    fun getSearchData(id:String) = flow{
+        emit(Resource.Loading)
+        try {
+            val searchItem = searchRepository.getSearchItem(id)
+            emit(Resource.Success(searchItem.body()!!))
+        } catch (e: Exception) {
+            emit(Resource.Error(e.localizedMessage))
+        }
+    }.flowOn(Dispatchers.IO)
+
 }
 
 

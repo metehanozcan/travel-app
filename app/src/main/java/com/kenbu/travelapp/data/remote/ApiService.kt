@@ -39,5 +39,10 @@ interface ApiService {
     @PUT("AllTravelList/{id}")
     suspend fun setItemBookMark(@Path("id") id: String, @Body item: TravelAppModelItem):Response<ResponseBody>
 
+    @GET("AllTravelList?isBookmark=true")
+    suspend fun getItemBookMark():Response<ArrayList<TravelAppModelItem>>
+
+    @GET("AllTravelList")
+    suspend fun getSearchItem(@Query("country")id:String):Response<ArrayList<TravelAppModelItem>>
 
 }

@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.kenbu.travelapp.databinding.FragmentDetailBinding
+import com.kenbu.travelapp.domain.model.TravelAppModelItem
+import com.kenbu.travelapp.domain.model.TravelAppModelItemImage
 import com.kenbu.travelapp.utils.download
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,12 +31,11 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeData()
-
     }
 
     private fun observeData() {
         val travelList = args.travelList
-        detailAdapter = DetailAdapter()
+        detailAdapter = DetailAdapter(::imageCallBack)
         binding.detailRecyclerView.adapter = detailAdapter
         detailAdapter.differ.submitList(travelList.images)
         binding.detailTitle.text = travelList.title
@@ -42,4 +44,7 @@ class DetailFragment : Fragment() {
         binding.articleImgView.download(travelList.images[0].url)
     }
 
+    private fun imageCallBack(newImage:TravelAppModelItemImage){
+        binding.articleImgView.download(newImage.url)
+    }
 }

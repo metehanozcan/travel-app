@@ -1,60 +1,36 @@
-package com.kenbu.travelapp.presentation.search
+package com.kenbu.travelapp.presentation.tripplan.bookmarkpage
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
-import com.kenbu.travelapp.domain.usecase.SearchUseCase
+import com.kenbu.travelapp.domain.usecase.TripPlanUseCase
 import com.kenbu.travelapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchViewModel @Inject constructor(private val searchUseCase: SearchUseCase) : ViewModel() {
+class BookMarkViewModel @Inject constructor(private val tripPlanUseCase: TripPlanUseCase) :
+    ViewModel() {
 
-    private val _uiState = MutableStateFlow(SearchUiState())
-    var uiState: StateFlow<SearchUiState> = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow(BookMarkUiState())
+    var uiState: StateFlow<BookMarkUiState> = _uiState.asStateFlow()
 
 
     init {
-        getTopDestinationsData()
-        getNearbyData()
+        getBookMarkData()
     }
-
-
-    private fun getTopDestinationsData() {
-        viewModelScope.launch {
-            searchUseCase.getTopDestinationsData().collect { resource ->
+    fun getBookMarkData() {
+        viewModelScope.launch{
+            tripPlanUseCase.getBookMarkData().collectLatest { resource ->
                 when (resource) {
                     is Resource.Success -> {
                         _uiState.update {
-                            it.copy(topDestinationsItem = resource.data as ArrayList<TravelAppModelItem>?)
-                        }
-                    }
-                    is Resource.Error -> {
-                        _uiState.update {
-                            it.copy(error = resource.message as String)
-                        }
-                    }
-                    is Resource.Loading -> {
-                        _uiState.update {
-                            it.copy(isLoading = true)
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    fun getNearbyData() {
-        viewModelScope.launch {
-            searchUseCase.getNearbyData().collect { resource ->
-                when (resource) {
-                    is Resource.Success -> {
-                        _uiState.update {
-                            it.copy(nearbyItem = resource.data as ArrayList<TravelAppModelItem>?)
+                            it.copy(bookMarkItem = resource.data as ArrayList<TravelAppModelItem>?)
                         }
                     }
                     is Resource.Error -> {
@@ -75,12 +51,11 @@ class SearchViewModel @Inject constructor(private val searchUseCase: SearchUseCa
 
     fun updateData(id: String, item: TravelAppModelItem) {
         viewModelScope.launch {
-            Log.d("Test View", "$id,$item")
-            searchUseCase.setBookMarkData(id, item).collectLatest { resource ->
+            tripPlanUseCase.setBookMarkData(id, item).collect { resource ->
                 when (resource) {
                     is Resource.Success -> {
                         _uiState.update {
-                            it.copy(bookMarkItem = resource.data)
+                            it.copy(responseItem = resource.data)
                         }
                     }
                     is Resource.Error -> {

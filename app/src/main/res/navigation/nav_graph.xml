@@ -12,7 +12,8 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -21,13 +22,22 @@
         tools:layout="@layout/fragment_search" >
         <action
             android:id="@+id/action_searchFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:popUpTo="@id/searchFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_searchEngineFragment"
+            app:destination="@id/searchEngineFragment"
+            app:popUpTo="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/tripPlanFragment"
         android:name="com.kenbu.travelapp.presentation.tripplan.TripPlanFragment"
         android:label="fragment_trip_plan"
-        tools:layout="@layout/fragment_trip_plan" />
+        tools:layout="@layout/fragment_trip_plan" >
+        <action
+            android:id="@+id/action_tripPlanFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/guideFragment"
         android:name="com.kenbu.travelapp.presentation.guide.GuideFragment"
@@ -35,7 +45,12 @@
         tools:layout="@layout/fragment_guide" >
         <action
             android:id="@+id/action_guideFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:popUpTo="@id/guideFragment" />
+        <action
+            android:id="@+id/action_guideFragment_to_searchEngineFragment"
+            app:destination="@id/searchEngineFragment"
+            app:popUpTo="@id/guideFragment"/>
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -45,5 +60,27 @@
         <argument
             android:name="travelList"
             app:argType="com.kenbu.travelapp.domain.model.TravelAppModelItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookMarkFragment"
+        android:name="com.kenbu.travelapp.presentation.tripplan.bookmarkpage.BookMarkFragment"
+        android:label="BookMarkFragment"
+        tools:layout="@layout/fragment_trip_plan_bookmark">
+        <action
+            android:id="@+id/action_bookMarkFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchEngineFragment"
+        android:name="com.kenbu.travelapp.presentation.search.searchengine.SearchEngineFragment"
+        android:label="SearchEngineFragment"
+        tools:layout="@layout/fragment_search_engine">
+        <action
+            android:id="@+id/action_searchEngineFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:popUpTo="@id/searchFragment" />
+        <argument
+            android:name="searchString"
+            app:argType="string" />
     </fragment>
 </navigation>

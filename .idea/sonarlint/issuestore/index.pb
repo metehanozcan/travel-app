@@ -19,8 +19,6 @@ h
 8app/src/test/java/com/kenbu/travelapp/ExampleUnitTest.kt,3\c\3c71ddfc074bd8c25df0b85898921f51c4859144
 h
 8app/src/main/java/com/kenbu/travelapp/HiltApplication.kt,f\f\ffc8da43107a0224412cfb57f44f19e5c384a4ba
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
@@ -34,8 +32,6 @@ e
 5app/src/main/java/com/kenbu/travelapp/di/AppModule.kt,e\8\e80396570962e2d34b99b33f72bd2e2b58dfa0f4
 n
 >app/src/main/java/com/kenbu/travelapp/utils/ImageDownloader.kt,d\9\d9af92d3cfef639b44db51125862a6092340d69a
-y
-Iapp/src/main/java/com/kenbu/travelapp/domain/repository/HomeRepository.kt,c\4\c49736d20dd33a1643c8ecb0907e1926d3de2d65
 ƒ
 Sapp/src/main/java/com/kenbu/travelapp/presentation/guide/adapter/ArticlesAdapter.kt,b\0\b021b6b93efd096492979bc62b65eedea97819c6
 ƒ
@@ -44,11 +40,31 @@ t
 Dapp/src/main/java/com/kenbu/travelapp/domain/usecase/GuideUseCase.kt,f\d\fd9e7573fd6fab87f04afcc6b763e0bd940cee38
 x
 Happ/src/main/java/com/kenbu/travelapp/presentation/guide/GuideUiState.kt,2\8\28e1b0bbd197c3a1dc366ca8c9ceca09c0375661
-z
-Japp/src/main/java/com/kenbu/travelapp/presentation/guide/GuideViewModel.kt,d\9\d9ca96b3648b60ff6e2102d44ef6e22c224ce41a
-y
-Iapp/src/main/java/com/kenbu/travelapp/presentation/guide/GuideFragment.kt,6\2\62b67826f95b3457ebfee6fd0e78e59fd03b2954
-{
-Kapp/src/main/java/com/kenbu/travelapp/presentation/details/DetailAdapter.kt,7\f\7f19afe9e58073a01b21ae871869ab2be1bf70fe
 u
 Eapp/src/main/java/com/kenbu/travelapp/data/local/dao/TravelListDAO.kt,d\c\dcf7b1d25d6492fb51550a9a053b625de990c6d3
+x
+Happ/src/main/java/com/kenbu/travelapp/domain/model/TravelAppModelItem.kt,0\1\016eb71757d3fdf1dfac95a25c494f376666d8aa
+…
+Uapp/src/main/java/com/kenbu/travelapp/presentation/guide/adapter/CategoriesAdapter.kt,b\d\bd2a74b6db4f4d1646b4c7710155a20d5b322e06
+p
+@app/src/main/java/com/kenbu/travelapp/domain/model/GuideModel.kt,5\8\583332b00437e6c1b228372d58cd9b6d4d7376c2
+v
+Fapp/src/main/java/com/kenbu/travelapp/presentation/home/HomeUiState.kt,e\2\e25cc8802cc009bd9d06fb9e5e8e72b359262581
+~
+Napp/src/main/java/com/kenbu/travelapp/presentation/home/adapter/HomeAdapter.kt,b\1\b1ea6b7ebe66ecc4e3558bad926a21c474f95611
+‚
+Rapp/src/main/java/com/kenbu/travelapp/data/remote/repository/HomeRepositoryImpl.kt,a\a\aadd8204eb3c15fcb970d0fe3d92f4e4156844f1
+z
+Japp/src/main/java/com/kenbu/travelapp/domain/repository/GuideRepository.kt,e\1\e1331b0a7950bc73534dae3d451cdbf55d979c42
+x
+Happ/src/main/java/com/kenbu/travelapp/presentation/home/HomeViewModel.kt,6\9\69036c7283941d1899c8ae8fde2fcf0afdcb6ce6
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+h
+8app/src/main/java/com/kenbu/travelapp/utils/Constants.kt,d\d\ddcb14fea9ad5b8df6b066cf9103d961c7e50165
+ƒ
+Sapp/src/main/java/com/kenbu/travelapp/data/remote/repository/GuideRepositoryImpl.kt,6\c\6c693fc4c3fe39f4b68cdcb2c7ea9349d5319d2b
+s
+Capp/src/main/java/com/kenbu/travelapp/domain/usecase/HomeUseCase.kt,5\3\53edd784e0fc6b6ad62c4ecd577f77d60d7cea73

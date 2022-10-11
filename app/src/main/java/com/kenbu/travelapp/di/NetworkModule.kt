@@ -4,9 +4,11 @@ import com.kenbu.travelapp.data.remote.ApiService
 import com.kenbu.travelapp.data.remote.repository.GuideRepositoryImpl
 import com.kenbu.travelapp.data.remote.repository.HomeRepositoryImpl
 import com.kenbu.travelapp.data.remote.repository.SearchRepositoryImpl
+import com.kenbu.travelapp.data.remote.repository.TripPlanRepositoryImpl
 import com.kenbu.travelapp.domain.repository.GuideRepository
 import com.kenbu.travelapp.domain.repository.HomeRepository
 import com.kenbu.travelapp.domain.repository.SearchRepository
+import com.kenbu.travelapp.domain.repository.TripPlanRepository
 import com.kenbu.travelapp.utils.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -60,5 +62,9 @@ class NetworkModule {
         return GuideRepositoryImpl(apiService)
     }
 
-
+    @Provides
+    @Singleton
+    fun provideTripPlanRepository(apiService: ApiService): TripPlanRepository {
+        return TripPlanRepositoryImpl(apiService)
+    }
 }

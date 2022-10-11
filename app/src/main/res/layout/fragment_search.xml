@@ -40,6 +40,7 @@
             app:endIconDrawable="@drawable/ic_unfilled_search"
             app:endIconMode="custom"
             app:endIconTint="@color/pink"
+            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/search_headline">

@@ -5,15 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.kenbu.travelapp.R
-import com.kenbu.travelapp.databinding.FragmentDetailBinding
 import com.kenbu.travelapp.databinding.FragmentDetailItemBinding
-import com.kenbu.travelapp.domain.model.TravelAppModelItem
 import com.kenbu.travelapp.domain.model.TravelAppModelItemImage
 import com.kenbu.travelapp.utils.download
 
 
-class DetailAdapter() : RecyclerView.Adapter<DetailAdapter.DetailVH>() {
+class DetailAdapter(private val imageCallBack: (TravelAppModelItemImage) -> Unit) :
+    RecyclerView.Adapter<DetailAdapter.DetailVH>() {
     class DetailVH(val binding: FragmentDetailItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -55,6 +53,9 @@ class DetailAdapter() : RecyclerView.Adapter<DetailAdapter.DetailVH>() {
         holder.binding.apply {
             itemImg.apply {
                 download(item.url)
+            }
+            holder.itemView.setOnClickListener {
+                imageCallBack(item)
             }
         }
     }

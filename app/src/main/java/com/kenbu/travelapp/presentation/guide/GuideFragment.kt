@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
+import com.google.android.material.snackbar.Snackbar
 import com.kenbu.travelapp.databinding.FragmentGuideBinding
-import com.kenbu.travelapp.presentation.guide.GuideViewModel
 import com.kenbu.travelapp.presentation.guide.adapter.ArticlesAdapter
 import com.kenbu.travelapp.presentation.guide.adapter.CategoriesAdapter
 import com.kenbu.travelapp.presentation.guide.adapter.MighNeedAdapter
@@ -37,6 +38,7 @@ class GuideFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
         observeData()
+        bindingInit()
     }
 
     private fun observeData() {
@@ -62,6 +64,27 @@ class GuideFragment : Fragment() {
         }
     }
 
+    private fun bindingInit() {
+        binding.apply {
+            searchTextField.setEndIconOnClickListener {
+                if (searchTextFieldEditText.length() < 3) {
+                    Snackbar.make(
+                        it,
+                        "Please give a valid Country name. At least 3 characters.",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                } else {
+                    Navigation.findNavController(it)
+                        .navigate(
+                            GuideFragmentDirections.actionGuideFragmentToSearchEngineFragment(
+                                searchTextFieldEditText.text.toString()
+                            )
+                        )
+                }
+            }
+        }
+    }
+
     private fun setupRecyclerView() {
         articleAdapter = ArticlesAdapter()
         mightNeedADapter = MighNeedAdapter()
@@ -73,6 +96,7 @@ class GuideFragment : Fragment() {
         }
     }
 }
+
 
 
 

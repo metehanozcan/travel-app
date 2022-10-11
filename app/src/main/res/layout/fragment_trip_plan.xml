@@ -24,7 +24,7 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_40sdp"
         android:layout_marginStart="@dimen/_16sdp"
         android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,16 +34,13 @@
         app:tabInlineLabel="true"
         app:tabPaddingBottom="@dimen/_8sdp"
         app:tabSelectedTextColor="@color/pink"
-
         app:tabTextAppearance="@style/tabsLayoutTextStyle"
         app:tabTextColor="#C2C5D6">
-
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:icon="@drawable/filled_briefcase"
             android:text="Trips"
-
             />
 
         <com.google.android.material.tabs.TabItem
@@ -52,7 +49,6 @@
             android:icon="@drawable/unfilled_bookmark"
             android:text="Bookmark" />
 
-
     </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager2.widget.ViewPager2
@@ -60,8 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="200dp"
-        android:layout_weight="1"
+        android:layout_marginBottom="170dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -10,6 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.Navigation
+import com.google.android.material.snackbar.Snackbar
 import com.kenbu.travelapp.databinding.FragmentSearchBinding
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
 import com.kenbu.travelapp.presentation.search.adapter.NearbyAdapter
@@ -48,7 +50,7 @@ class SearchFragment : Fragment() {
                         if (!it) {
                             Log.d("test1111", "tessssssss")
                         } else {
-                            Log.d("test2222", "tessssssss")
+                            viewModel.getNearbyData()
                         }
                     }
                     it.nearbyItem.let { list ->
@@ -68,11 +70,27 @@ class SearchFragment : Fragment() {
         binding.apply {
             binding.topdestinationsRecyclerview.adapter = topDestinationsAdapter
             binding.nearbyRecyclerview.adapter = nearByAdapter
+            searchTextField.setEndIconOnClickListener {
+                if (searchTextFieldEditText.length() < 3) {
+                    Snackbar.make(
+                        it,
+                        "Please give a valid Country name. At least 3 characters.",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                } else {
+                    Navigation.findNavController(it)
+                        .navigate(
+                            SearchFragmentDirections.actionSearchFragmentToSearchEngineFragment(
+                                searchTextFieldEditText.text.toString()
+                            )
+                        )
+                }
+            }
         }
     }
 
     private fun setBookMark(bookMark: TravelAppModelItem) {
-        viewModel.updateData(bookMark.id,bookMark)
+        viewModel.updateData(bookMark.id, bookMark)
     }
 }
 
