@@ -49,7 +49,6 @@ class SearchEngineAdapter() :
     override fun onBindViewHolder(holder: SearchEngineVH, position: Int) {
         val item = differ.currentList[position]
 
-
         holder.binding.apply {
             Log.d("item", item.toString())
             destImg.apply {

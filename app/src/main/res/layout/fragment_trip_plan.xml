@@ -56,33 +56,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="170dp"
+        android:layout_marginBottom="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tabLayout"
         app:layout_constraintVertical_bias="0.0">
-
     </androidx.viewpager2.widget.ViewPager2>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_action_button"
-        android:layout_width="wrap_content"
-        android:layout_height="56dp"
-        android:layout_margin="16dp"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="@color/pink"
-        android:scaleType="center"
-        app:borderWidth="0dp"
-        app:fabSize="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewPager"
-        app:maxImageSize="32dp"
-        app:srcCompat="@drawable/add"
-        app:tint="@color/white" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

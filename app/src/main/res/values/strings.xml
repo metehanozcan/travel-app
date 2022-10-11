@@ -15,4 +15,6 @@
     <string name="top_destinations_subtitle">TOP DESTINATIONS</string>
     <string name="top_pick_articles_string">TOP-PICK ARTICLES</string>
     <string name="might_need_these_string">MIGHT NEED THESE</string>
+    <string name="pick_departure_date">Pick Departure Date</string>
+    <string name="pick_return_date">Pick Return Date</string>
 </resources>

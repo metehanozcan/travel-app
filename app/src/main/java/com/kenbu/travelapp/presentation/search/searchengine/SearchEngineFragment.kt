@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.navArgs
 import com.kenbu.travelapp.databinding.FragmentSearchEngineBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import okhttp3.internal.wait
 
 @AndroidEntryPoint
 class SearchEngineFragment : Fragment() {
@@ -39,15 +39,25 @@ class SearchEngineFragment : Fragment() {
 
     }
 
-    private fun getData(id:String){
+    private fun getData(id: String) {
         viewModel.viewModelScope.launch {
             viewModel.getSearchData(id)
-            delay(1000L)
-            viewModel.uiState.collect{
+            delay(600L)
+            viewModel.uiState.collect {
                 it.searchItem.let { list ->
-                    searchEngineAdapter.differ.submitList(list)
+                    if (list!!.size == 0) {
+                        binding.apply {
+                            searchEngineText.visibility = View.VISIBLE
+                            searchEngineErrorImage.visibility = View.VISIBLE
+                        }
+                    } else {
+                        binding.apply {
+                            searchEngineText.visibility = View.GONE
+                            searchEngineErrorImage.visibility = View.GONE
+                        }
+                        searchEngineAdapter.differ.submitList(list)
+                    }
                 }
-
             }
         }
     }
@@ -63,7 +73,7 @@ class SearchEngineFragment : Fragment() {
                     }
                 }
                 it.searchItem.let { list ->
-                    Log.d("Search Engine",list.toString())
+                    Log.d("Search Engine", list.toString())
                     searchEngineAdapter.differ.submitList(list)
 
                 }

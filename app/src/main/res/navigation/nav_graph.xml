@@ -83,4 +83,8 @@
             android:name="searchString"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/tripPageFragment"
+        android:name="com.kenbu.travelapp.presentation.tripplan.trippage.TripPageFragment"
+        android:label="TripPageFragment" />
 </navigation>
