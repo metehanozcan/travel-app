@@ -1,5 +1,6 @@
 package com.kenbu.travelapp.presentation.guide
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kenbu.travelapp.domain.model.GuideModel
@@ -8,10 +9,7 @@ import com.kenbu.travelapp.domain.usecase.GuideUseCase
 import com.kenbu.travelapp.domain.usecase.HomeUseCase
 import com.kenbu.travelapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,9 +24,9 @@ class GuideViewModel @Inject constructor(private val guideUseCase: GuideUseCase)
         getMightNeedData()
     }
 
-    private fun getArticlesData() {
+    fun getArticlesData() {
         viewModelScope.launch {
-            guideUseCase.getGuideTopPickData().collect { resource ->
+            guideUseCase.getGuideTopPickData().collectLatest { resource ->
                 when (resource) {
                     is Resource.Success -> {
                         _uiState.update {
@@ -81,6 +79,30 @@ class GuideViewModel @Inject constructor(private val guideUseCase: GuideUseCase)
                     is Resource.Success -> {
                         _uiState.update {
                             it.copy(categoryItem = resource.data as ArrayList<GuideModel>?)
+                        }
+                    }
+                    is Resource.Error -> {
+                        _uiState.update {
+                            it.copy(error = resource.message as String)
+                        }
+                    }
+                    is Resource.Loading -> {
+                        _uiState.update {
+                            it.copy(isLoading = true)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    fun updateData(id: String, item: TravelAppModelItem) {
+        viewModelScope.launch {
+            Log.d("Guide View", "$id,$item")
+            guideUseCase.setBookMarkData(id, item).collectLatest { resource ->
+                when (resource) {
+                    is Resource.Success -> {
+                        _uiState.update {
+                            it.copy(bookMarkItem = resource.data)
                         }
                     }
                     is Resource.Error -> {

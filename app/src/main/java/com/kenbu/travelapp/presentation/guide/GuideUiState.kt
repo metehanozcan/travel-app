@@ -8,5 +8,6 @@ data class GuideUiState (
     val isLoading: Boolean = false,
     val categoryItem: ArrayList<GuideModel>? = null,
     val topPickItem: ArrayList<TravelAppModelItem>? = null,
-    val mightNeedItem: ArrayList<TravelAppModelItem>? = null
+    val mightNeedItem: ArrayList<TravelAppModelItem>? = null,
+    val bookMarkItem: Any? = null
 )

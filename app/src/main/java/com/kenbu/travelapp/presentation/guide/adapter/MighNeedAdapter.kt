@@ -2,11 +2,14 @@ package com.kenbu.travelapp.presentation.guide.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.kenbu.travelapp.databinding.GuideScreenMightNeedTheseItemBinding
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
+import com.kenbu.travelapp.presentation.guide.GuideFragmentDirections
+import com.kenbu.travelapp.presentation.search.SearchFragmentDirections
 import com.kenbu.travelapp.utils.download
 
 
@@ -49,7 +52,14 @@ class MighNeedAdapter() : RecyclerView.Adapter<MighNeedAdapter.MigtNeedVH>() {
                 download(item.images[0].url.toString())
             }
             mightneedText.text = item.city
-
+        }
+        holder.itemView.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(
+                    GuideFragmentDirections.actionGuideFragmentToDetailFragment(
+                        item
+                    )
+                )
         }
     }
 

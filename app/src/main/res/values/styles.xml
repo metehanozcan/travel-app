@@ -29,4 +29,12 @@
         <item name="boxStrokeColor">@color/search_text_input_stroke</item>
         <item name="boxStrokeWidth">1.8dp</item>
     </style>
+
+    <style name="roundedCornersImageViewDetail" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
+        <item name="cornerSizeBottomLeft">@dimen/_32sdp</item>
+        <item name="cornerSizeBottomRight">@dimen/_32sdp</item>
+    </style>
 </resources>

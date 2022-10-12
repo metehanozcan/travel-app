@@ -71,10 +71,11 @@
 
                 <TextView
                     android:id="@+id/search_attractions_type_text_layout"
-                    android:layout_width="@dimen/_50sdp"
+                    android:layout_width="wrap_content"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="@dimen/_16sdp"
+                    android:padding="5dp"
                     android:background="@drawable/search_type_text_background"
                     android:fontFamily="@font/source_sans_pro_semibold"
                     android:gravity="center"

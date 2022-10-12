@@ -20,10 +20,10 @@ class HomeViewModel @Inject constructor(private val homeUseCase: HomeUseCase) : 
     var uiState: StateFlow<HomeUiState> = _uiState.asStateFlow()
 
     init {
-        getHomeData()
-        getFlightData()
-        getHotelData()
-        getTransportationData()
+//        getHomeData()
+//        getFlightData()
+//        getHotelData()
+//        getTransportationData()
     }
 
     private fun getHomeData() {

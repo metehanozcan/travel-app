@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.google.android.material.snackbar.Snackbar
 import com.kenbu.travelapp.databinding.FragmentGuideBinding
+import com.kenbu.travelapp.domain.model.TravelAppModelItem
 import com.kenbu.travelapp.presentation.guide.adapter.ArticlesAdapter
 import com.kenbu.travelapp.presentation.guide.adapter.CategoriesAdapter
 import com.kenbu.travelapp.presentation.guide.adapter.MighNeedAdapter
@@ -48,7 +49,7 @@ class GuideFragment : Fragment() {
                     if (!it) {
                         Log.d("test", "guide fragment loading")
                     } else {
-                        Log.d("test2222", "guide fragment loading")
+                        viewModel.getArticlesData()
                     }
                 }
                 it.categoryItem.let { list ->
@@ -77,7 +78,7 @@ class GuideFragment : Fragment() {
                     Navigation.findNavController(it)
                         .navigate(
                             GuideFragmentDirections.actionGuideFragmentToSearchEngineFragment(
-                                searchTextFieldEditText.text.toString()
+                                searchTextFieldEditText.text?.trim().toString()
                             )
                         )
                 }
@@ -86,7 +87,7 @@ class GuideFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        articleAdapter = ArticlesAdapter()
+        articleAdapter = ArticlesAdapter(::setBookMark)
         mightNeedADapter = MighNeedAdapter()
         categoriesAdapter = CategoriesAdapter()
         binding.apply {
@@ -94,6 +95,10 @@ class GuideFragment : Fragment() {
             binding.mightneedRecyclerview.adapter = mightNeedADapter
             binding.categoryRecyclerview.adapter = categoriesAdapter
         }
+    }
+
+    private fun setBookMark(bookMark: TravelAppModelItem) {
+        viewModel.updateData(bookMark.id, bookMark)
     }
 }
 

@@ -6,8 +6,8 @@ import com.kenbu.travelapp.data.local.dao.TripPlanDAO
 import com.kenbu.travelapp.data.local.dao.TripPlanDb
 import com.kenbu.travelapp.data.local.repository.TripPlanLocalRepositoryImpl
 import com.kenbu.travelapp.data.remote.ApiService
-import com.kenbu.travelapp.data.remote.repository.GuideRepositoryImpl
-import com.kenbu.travelapp.data.remote.repository.TripPlanRepositoryImpl
+import com.kenbu.travelapp.data.local.dao.repository.GuideRepositoryImpl
+import com.kenbu.travelapp.data.local.dao.repository.TripPlanRepositoryImpl
 import com.kenbu.travelapp.domain.repository.GuideRepository
 import com.kenbu.travelapp.domain.repository.TripPlanLocalRepository
 import dagger.Module

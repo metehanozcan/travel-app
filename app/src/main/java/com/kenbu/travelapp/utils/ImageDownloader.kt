@@ -5,6 +5,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.android.material.imageview.ShapeableImageView
+import com.kenbu.travelapp.R
 
 /**
  * GETS IMAGE URL FROM MODEL
@@ -15,6 +16,7 @@ fun ShapeableImageView.download(image: String) {
     image.let {
         Glide.with(context)
             .load(image).diskCacheStrategy(DiskCacheStrategy.ALL)
+            .placeholder(R.drawable.loading)
             .into(this)
     }
 }

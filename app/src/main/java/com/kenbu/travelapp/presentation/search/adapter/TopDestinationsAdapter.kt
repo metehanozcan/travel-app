@@ -3,12 +3,14 @@ package com.kenbu.travelapp.presentation.search.adapter
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.kenbu.travelapp.databinding.SearchScreenNearbyAttractionsItemBinding
 import com.kenbu.travelapp.databinding.SearchScreenTopDestinationsItemBinding
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
+import com.kenbu.travelapp.presentation.search.SearchFragmentDirections
 import com.kenbu.travelapp.utils.download
 
 
@@ -53,6 +55,14 @@ class TopDestinationsAdapter() : RecyclerView.Adapter<TopDestinationsAdapter.Top
             }
             topDestinationsCityTextLayout.text = item.city
             topDestinationsCountryText.text = item.country
+        }
+        holder.itemView.setOnClickListener {
+            Navigation.findNavController(it)
+                .navigate(
+                    SearchFragmentDirections.actionSearchFragmentToDetailFragment(
+                        item
+                    )
+                )
         }
     }
 

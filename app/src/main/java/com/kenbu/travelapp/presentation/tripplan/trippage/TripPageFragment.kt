@@ -107,6 +107,9 @@ class TripPageFragment : Fragment() {
                         ).show()
                     }
                 }
+                closeButton.setOnClickListener(){
+                    tripplanner.visibility = View.GONE
+                }
             }
         }
     }

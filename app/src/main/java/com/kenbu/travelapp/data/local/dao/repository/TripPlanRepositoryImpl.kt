@@ -1,4 +1,4 @@
-package com.kenbu.travelapp.data.remote.repository
+package com.kenbu.travelapp.data.local.dao.repository
 
 import com.kenbu.travelapp.data.local.dao.TripPlanDAO
 import com.kenbu.travelapp.data.remote.ApiService

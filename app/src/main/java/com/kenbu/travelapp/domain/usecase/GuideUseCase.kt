@@ -1,5 +1,6 @@
 package com.kenbu.travelapp.domain.usecase
 
+import com.kenbu.travelapp.domain.model.TravelAppModelItem
 import com.kenbu.travelapp.domain.repository.GuideRepository
 import com.kenbu.travelapp.utils.Resource
 import kotlinx.coroutines.Dispatchers
@@ -34,6 +35,17 @@ class GuideUseCase @Inject constructor(private val guideRepository: GuideReposit
         try {
             val travelList = guideRepository.getTravelTopPickList()
             emit(Resource.Success(travelList.body()!!))
+        } catch (e: Exception) {
+            emit(Resource.Error(e.localizedMessage))
+        }
+    }.flowOn(Dispatchers.IO)
+
+    fun setBookMarkData(id: String, item: TravelAppModelItem) = flow {
+        emit(Resource.Loading)
+        try {
+            val sendDataResponse = guideRepository.setItemBookMark(id,item)
+            emit(Resource.Success(sendDataResponse))
+
         } catch (e: Exception) {
             emit(Resource.Error(e.localizedMessage))
         }

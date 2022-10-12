@@ -47,11 +47,7 @@ class SearchFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect {
                     it.isLoading.let {
-                        if (!it) {
-                            Log.d("test1111", "tessssssss")
-                        } else {
-                            viewModel.getNearbyData()
-                        }
+                        viewModel.getNearbyData()
                     }
                     it.nearbyItem.let { list ->
                         nearByAdapter.differ.submitList(list)
@@ -81,7 +77,7 @@ class SearchFragment : Fragment() {
                     Navigation.findNavController(it)
                         .navigate(
                             SearchFragmentDirections.actionSearchFragmentToSearchEngineFragment(
-                                searchTextFieldEditText.text.toString()
+                                searchTextFieldEditText.text?.trim().toString()
                             )
                         )
                 }

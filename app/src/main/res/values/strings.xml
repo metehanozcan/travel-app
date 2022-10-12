@@ -17,4 +17,5 @@
     <string name="might_need_these_string">MIGHT NEED THESE</string>
     <string name="pick_departure_date">Pick Departure Date</string>
     <string name="pick_return_date">Pick Return Date</string>
+    <string name="see_all_text"><u>See All</u></string>
 </resources>

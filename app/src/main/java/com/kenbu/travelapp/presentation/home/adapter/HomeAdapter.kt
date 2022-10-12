@@ -27,7 +27,7 @@ class HomeAdapter() : RecyclerView.Adapter<HomeAdapter.HomeVH>() {
             oldItem: TravelAppModelItem,
             newItem: TravelAppModelItem
         ): Boolean {
-            return (oldItem.images[0]==newItem.images[0])
+            return (oldItem== newItem && oldItem.images[0]==newItem.images[0])
         }
     }
 
@@ -42,11 +42,9 @@ class HomeAdapter() : RecyclerView.Adapter<HomeAdapter.HomeVH>() {
     override fun onBindViewHolder(holder: HomeVH, position: Int) {
        val item = differ.currentList[position]
         holder.binding.apply {
-
             itemImg.apply{
                 download(item.images[0].url)
             }
-
         }
     }
 
