@@ -54,7 +54,6 @@ class SearchUseCase @Inject constructor(private val searchRepository: SearchRepo
             emit(Resource.Success(searchItem.body()!!))
         }
     }.flowOn(Dispatchers.IO)
-
 }
 
 
