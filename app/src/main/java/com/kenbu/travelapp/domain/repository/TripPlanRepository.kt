@@ -1,8 +1,6 @@
 package com.kenbu.travelapp.domain.repository
 
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
-import com.kenbu.travelapp.domain.model.TripPlanModel
-import kotlinx.coroutines.flow.Flow
 import okhttp3.ResponseBody
 import retrofit2.Response
 

@@ -14,7 +14,8 @@ import com.kenbu.travelapp.presentation.search.SearchFragmentDirections
 import com.kenbu.travelapp.utils.download
 
 
-class NearbyAdapter(private val bookMarkCallBack :(TravelAppModelItem)->Unit) : RecyclerView.Adapter<NearbyAdapter.NearbyVH>() {
+class NearbyAdapter(private val bookMarkCallBack: (TravelAppModelItem) -> Unit) :
+    RecyclerView.Adapter<NearbyAdapter.NearbyVH>() {
     class NearbyVH(val binding: SearchScreenNearbyAttractionsItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -49,8 +50,6 @@ class NearbyAdapter(private val bookMarkCallBack :(TravelAppModelItem)->Unit) : 
     override fun onBindViewHolder(holder: NearbyVH, position: Int) {
         val item = differ.currentList[position]
 
-
-
         holder.binding.apply {
             Log.d("item", item.toString())
             destImg.apply {
@@ -60,6 +59,7 @@ class NearbyAdapter(private val bookMarkCallBack :(TravelAppModelItem)->Unit) : 
             searchAttractionsTypeTextLayout.text = item.category
             topDestinationsCityTextLayout.text = item.city
             topDestinationsCountryText.text = item.country
+            //BOOKMARK BUTTON BINDING IMPLEMENTATION
             if (item.isBookmark) {
                 searchBookmarkButton.setIconResource(R.drawable.filled_bookmark_)
                 searchBookmarkButton.setIconTintResource(R.color.pink)
@@ -68,7 +68,6 @@ class NearbyAdapter(private val bookMarkCallBack :(TravelAppModelItem)->Unit) : 
                 searchBookmarkButton.setIconTintResource(R.color.white)
             }
             searchBookmarkButton.setOnClickListener {
-
                 if (!item.isBookmark) {
                     searchBookmarkButton.setIconResource(R.drawable.filled_bookmark_)
                     searchBookmarkButton.setIconTintResource(R.color.pink)
@@ -81,6 +80,7 @@ class NearbyAdapter(private val bookMarkCallBack :(TravelAppModelItem)->Unit) : 
                 }
                 bookMarkCallBack(item)
             }
+            //NAV TO DETAIL
             holder.itemView.setOnClickListener {
                 Navigation.findNavController(it)
                     .navigate(
@@ -91,7 +91,6 @@ class NearbyAdapter(private val bookMarkCallBack :(TravelAppModelItem)->Unit) : 
             }
         }
     }
-
 
 
     override fun getItemCount(): Int {

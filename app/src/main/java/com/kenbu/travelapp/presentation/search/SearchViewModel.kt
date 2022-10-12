@@ -17,12 +17,10 @@ class SearchViewModel @Inject constructor(private val searchUseCase: SearchUseCa
     private val _uiState = MutableStateFlow(SearchUiState())
     var uiState: StateFlow<SearchUiState> = _uiState.asStateFlow()
 
-
     init {
         getTopDestinationsData()
         getNearbyData()
     }
-
 
     private fun getTopDestinationsData() {
         viewModelScope.launch {

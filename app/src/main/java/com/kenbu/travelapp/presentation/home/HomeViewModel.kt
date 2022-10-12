@@ -25,7 +25,7 @@ class HomeViewModel @Inject constructor(private val homeUseCase: HomeUseCase) : 
 //        getHotelData()
 //        getTransportationData()
     }
-
+/// İLERİ DE YAPILACAK GELİŞTİRMELER AMACI İLE SİLİNMEMİŞTİR.
     private fun getHomeData() {
         viewModelScope.launch {
             homeUseCase.getTravelData().collect { resource ->
@@ -121,7 +121,4 @@ class HomeViewModel @Inject constructor(private val homeUseCase: HomeUseCase) : 
             }
         }
     }
-
-
-
 }

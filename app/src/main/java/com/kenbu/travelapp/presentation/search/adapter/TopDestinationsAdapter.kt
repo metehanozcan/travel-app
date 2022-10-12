@@ -7,7 +7,6 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.kenbu.travelapp.databinding.SearchScreenNearbyAttractionsItemBinding
 import com.kenbu.travelapp.databinding.SearchScreenTopDestinationsItemBinding
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
 import com.kenbu.travelapp.presentation.search.SearchFragmentDirections
@@ -65,7 +64,6 @@ class TopDestinationsAdapter() : RecyclerView.Adapter<TopDestinationsAdapter.Top
                 )
         }
     }
-
 
     override fun getItemCount(): Int {
         return differ.currentList.size

@@ -13,7 +13,6 @@ import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
 import com.kenbu.travelapp.databinding.FragmentTripPageBinding
 import com.kenbu.travelapp.domain.model.TripPlanModel
-import com.kenbu.travelapp.presentation.tripplan.bookmarkpage.BookMarkAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -26,7 +25,6 @@ class TripPageFragment : Fragment() {
     private var bundle = Bundle()
     private val viewModel: TripPageViewModel by viewModels()
     private lateinit var tripPageAdapter: TripPageAdapter
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +42,12 @@ class TripPageFragment : Fragment() {
         initBindings()
     }
 
-
+    /*
+        BURDAKİ MANTIK BİR DATE PICKER OLUŞTURURAK
+        DATE PICKER'DAN DÖNEN LONG DEĞERLERİ
+        BİRBİRİNDEN ÇIKARTIP KULLANICIN KAÇ GÜN KALMAK İSTEDİĞİNİ BULMAK.
+        DAHA SONRA ROOM DB' YE KAYDETMEKTİR
+     */
     private fun initBindings() {
         var date1 = ""
         var date2 = ""
@@ -74,7 +77,8 @@ class TripPageFragment : Fragment() {
                             bundle.putString("date2", date2)
                             bundle.putString("daystostay", daysToStay)
                         } catch (e: Exception) {
-                        }//
+                            Log.d("Exception", "$e")
+                        }
                     }
                 }
                 addTripButton.setOnClickListener {
@@ -107,7 +111,7 @@ class TripPageFragment : Fragment() {
                         ).show()
                     }
                 }
-                closeButton.setOnClickListener(){
+                closeButton.setOnClickListener() {
                     tripplanner.visibility = View.GONE
                 }
             }
@@ -116,21 +120,14 @@ class TripPageFragment : Fragment() {
 
     private fun observeData() {
         viewModel.viewModelScope.launch {
-                viewModel.uiState.collect {
-                    it.isLoading.let {
-                        if (!it) {
-                        }
-                        else {
-                        }
-                    }
-                    Log.d("Test","ViewModel çağrıldı")
-                    viewModel.getAllProducts()
-                    it.tripItem.let { list ->
-                        tripPageAdapter.differ.submitList(list)
-                    }
+            viewModel.uiState.collect {
+                viewModel.getAllProducts()
+                it.tripItem.let { list ->
+                    tripPageAdapter.differ.submitList(list)
                 }
             }
         }
+    }
 
     private fun recyclerViewSetup() {
         tripPageAdapter = TripPageAdapter()

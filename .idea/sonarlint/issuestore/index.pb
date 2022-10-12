@@ -17,20 +17,8 @@ w
 Gapp/src/androidTest/java/com/kenbu/travelapp/ExampleInstrumentedTest.kt,6\8\68b525e5240ef456bf872b5fc9cfcc9e9fc44e15
 h
 8app/src/test/java/com/kenbu/travelapp/ExampleUnitTest.kt,3\c\3c71ddfc074bd8c25df0b85898921f51c4859144
-h
-8app/src/main/java/com/kenbu/travelapp/HiltApplication.kt,f\f\ffc8da43107a0224412cfb57f44f19e5c384a4ba
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-…
-Uapp/src/main/java/com/kenbu/travelapp/presentation/guide/adapter/CategoriesAdapter.kt,b\d\bd2a74b6db4f4d1646b4c7710155a20d5b322e06
-p
-@app/src/main/java/com/kenbu/travelapp/domain/model/GuideModel.kt,5\8\583332b00437e6c1b228372d58cd9b6d4d7376c2
 ‚
 Rapp/src/main/java/com/kenbu/travelapp/data/remote/repository/HomeRepositoryImpl.kt,a\a\aadd8204eb3c15fcb970d0fe3d92f4e4156844f1
-h
-8app/src/main/java/com/kenbu/travelapp/utils/Constants.kt,d\d\ddcb14fea9ad5b8df6b066cf9103d961c7e50165
-s
-Capp/src/main/java/com/kenbu/travelapp/domain/usecase/HomeUseCase.kt,5\3\53edd784e0fc6b6ad62c4ecd577f77d60d7cea73
-u
-Eapp/src/main/java/com/kenbu/travelapp/domain/usecase/SearchUseCase.kt,d\7\d78854c2d61ced6845ad6f084cc42ac4ffc77715

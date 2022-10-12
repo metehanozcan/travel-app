@@ -14,7 +14,8 @@ class CategoriesAdapter() : RecyclerView.Adapter<CategoriesAdapter.CategoryVH>()
     class CategoryVH(val binding: GuideButtonCategoryBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-    private val category_list = mutableListOf(0,
+    private val category_list = mutableListOf(
+        0,
         R.drawable.filled_taxi,
         R.drawable.filled_car,
         R.drawable.ic_unfilled_home,

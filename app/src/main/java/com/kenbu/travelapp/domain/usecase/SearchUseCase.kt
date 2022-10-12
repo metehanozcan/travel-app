@@ -7,7 +7,6 @@ import com.kenbu.travelapp.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import okhttp3.RequestBody
 import javax.inject.Inject
 
 class SearchUseCase @Inject constructor(private val searchRepository: SearchRepository) {
@@ -26,7 +25,7 @@ class SearchUseCase @Inject constructor(private val searchRepository: SearchRepo
         try {
             val travelList = searchRepository.getNearbyDestinationsData()
             emit(Resource.Success(travelList.body()!!))
-            Log.d("test",travelList.body().toString())
+            Log.d("test", travelList.body().toString())
         } catch (e: Exception) {
             emit(Resource.Error(e.localizedMessage))
         }
@@ -35,7 +34,7 @@ class SearchUseCase @Inject constructor(private val searchRepository: SearchRepo
     fun setBookMarkData(id: String, item: TravelAppModelItem) = flow {
         emit(Resource.Loading)
         try {
-            val sendDataResponse = searchRepository.setItemBookMark(id,item)
+            val sendDataResponse = searchRepository.setItemBookMark(id, item)
             emit(Resource.Success(sendDataResponse))
 
         } catch (e: Exception) {
@@ -43,15 +42,18 @@ class SearchUseCase @Inject constructor(private val searchRepository: SearchRepo
         }
     }.flowOn(Dispatchers.IO)
 
-    fun getSearchData(id:String) = flow{
+    fun getSearchData(id: String) = flow {
         emit(Resource.Loading)
         try {
             val searchItem = searchRepository.getSearchItem(id)
             emit(Resource.Success(searchItem.body()!!))
         } catch (e: Exception) {
             emit(Resource.Error(e.localizedMessage))
+        }finally {
+            val searchItem = searchRepository.getSearchItem(id)
+            emit(Resource.Success(searchItem.body()!!))
         }
-    }.flowOn(Dispatchers.IO)
+    }.flowOn(Dispatchers.Default)
 
 }
 

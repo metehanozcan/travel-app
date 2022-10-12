@@ -1,10 +1,10 @@
 package com.kenbu.travelapp.di
 
-import com.kenbu.travelapp.data.remote.ApiService
 import com.kenbu.travelapp.data.local.dao.repository.GuideRepositoryImpl
 import com.kenbu.travelapp.data.local.dao.repository.HomeRepositoryImpl
 import com.kenbu.travelapp.data.local.dao.repository.SearchRepositoryImpl
 import com.kenbu.travelapp.data.local.dao.repository.TripPlanRepositoryImpl
+import com.kenbu.travelapp.data.remote.ApiService
 import com.kenbu.travelapp.domain.repository.GuideRepository
 import com.kenbu.travelapp.domain.repository.HomeRepository
 import com.kenbu.travelapp.domain.repository.SearchRepository

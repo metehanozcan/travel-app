@@ -1,15 +1,12 @@
 package com.kenbu.travelapp.presentation.tripplan.bookmarkpage
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
 import com.kenbu.travelapp.domain.usecase.TripPlanUseCase
 import com.kenbu.travelapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

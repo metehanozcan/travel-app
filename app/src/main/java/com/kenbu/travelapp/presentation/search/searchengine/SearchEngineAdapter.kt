@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.kenbu.travelapp.databinding.FragmentSearchEngineItemBinding
-import com.kenbu.travelapp.databinding.FragmentTripPlanBookmarkItemBinding
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
 import com.kenbu.travelapp.utils.download
 
@@ -58,7 +57,6 @@ class SearchEngineAdapter() :
             searchAttractionsTypeTextLayout.text = item.category
             topDestinationsCityTextLayout.text = item.city
             topDestinationsCountryText.text = item.country
-
         }
         holder.itemView.setOnClickListener {
             Navigation.findNavController(it)
@@ -69,8 +67,6 @@ class SearchEngineAdapter() :
                 )
         }
     }
-
-
     override fun getItemCount(): Int {
         return differ.currentList.size
     }

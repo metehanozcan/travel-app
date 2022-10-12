@@ -19,7 +19,6 @@ class TripPageViewModel @Inject constructor(private val tripPlanDatabaseUseCase:
     private val _uiState = MutableStateFlow(TripPageUiState())
     val uiState: StateFlow<TripPageUiState> = _uiState.asStateFlow()
 
-
     init {
         getAllProducts()
     }

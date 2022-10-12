@@ -8,4 +8,4 @@ data class GuideModel(
     val icon: String,
     val id: String,
     val title: String
-):Parcelable
+) : Parcelable

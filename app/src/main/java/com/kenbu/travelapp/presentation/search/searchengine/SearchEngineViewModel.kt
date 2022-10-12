@@ -5,10 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
 import com.kenbu.travelapp.domain.usecase.SearchUseCase
-import com.kenbu.travelapp.domain.usecase.TripPlanUseCase
 import com.kenbu.travelapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,8 +21,8 @@ class SearchEngineViewModel @Inject constructor(private val searchUseCase: Searc
     private val _uiState = MutableStateFlow(SearchEngineUiState())
     var uiState: StateFlow<SearchEngineUiState> = _uiState.asStateFlow()
 
-    fun getSearchData(id:String) {
-        viewModelScope.launch{
+    fun getSearchData(id: String) {
+        viewModelScope.launch {
             searchUseCase.getSearchData(id).collect { resource ->
                 when (resource) {
                     is Resource.Success -> {

@@ -1,7 +1,6 @@
 package com.kenbu.travelapp.presentation.search.searchengine
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,6 @@ import com.kenbu.travelapp.databinding.FragmentSearchEngineBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import okhttp3.internal.wait
 
 @AndroidEntryPoint
 class SearchEngineFragment : Fragment() {

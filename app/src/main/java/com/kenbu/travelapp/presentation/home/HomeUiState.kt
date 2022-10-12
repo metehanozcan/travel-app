@@ -8,5 +8,5 @@ data class HomeUiState(
     val homeItems: ArrayList<TravelAppModelItem>? = null,
     val categoryFlightItems: ArrayList<TravelAppModelItem>? = null,
     val categoryHotelItems: ArrayList<TravelAppModelItem>? = null,
-    val categoryTransportationItems:ArrayList<TravelAppModelItem>? = null
+    val categoryTransportationItems: ArrayList<TravelAppModelItem>? = null
 )

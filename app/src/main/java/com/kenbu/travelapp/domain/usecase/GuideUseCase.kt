@@ -43,7 +43,7 @@ class GuideUseCase @Inject constructor(private val guideRepository: GuideReposit
     fun setBookMarkData(id: String, item: TravelAppModelItem) = flow {
         emit(Resource.Loading)
         try {
-            val sendDataResponse = guideRepository.setItemBookMark(id,item)
+            val sendDataResponse = guideRepository.setItemBookMark(id, item)
             emit(Resource.Success(sendDataResponse))
 
         } catch (e: Exception) {

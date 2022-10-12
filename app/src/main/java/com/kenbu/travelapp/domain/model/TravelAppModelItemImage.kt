@@ -6,4 +6,4 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class TravelAppModelItemImage(
     val url: String,
-):Parcelable
+) : Parcelable

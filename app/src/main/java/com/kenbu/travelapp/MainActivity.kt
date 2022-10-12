@@ -31,7 +31,9 @@ class MainActivity : AppCompatActivity() {
             binding.bottomNavigationView,
             navHostFragment.navController
         )
-
+            /*
+            Bottom Nav Bar'ı belli fragmentlerde saklamak için kullandığımız logic
+             */
         val navController = navHostFragment.navController
         navController!!.addOnDestinationChangedListener { controller: NavController?, destination: NavDestination, bundle: Bundle? ->
                 if (destination.id == R.id.detailFragment || destination.id == R.id.searchEngineFragment )

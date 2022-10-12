@@ -5,12 +5,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
-@Entity (tableName = "trips")
+@Entity(tableName = "trips")
 @Parcelize
 data class TripPlanModel(
     @PrimaryKey(autoGenerate = false)
-    var departureDate:String,
-    var returnDate:String,
-    var destination:String,
-    var dayToStay:String
-):Parcelable
+    var departureDate: String,
+    var returnDate: String,
+    var destination: String,
+    var dayToStay: String
+) : Parcelable

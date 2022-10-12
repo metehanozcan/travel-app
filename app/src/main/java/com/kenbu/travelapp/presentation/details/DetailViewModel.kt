@@ -3,7 +3,6 @@ package com.kenbu.travelapp.presentation.details
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kenbu.travelapp.domain.model.GuideModel
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
 import com.kenbu.travelapp.domain.usecase.GuideUseCase
 import com.kenbu.travelapp.utils.Resource
@@ -20,7 +19,6 @@ class DetailViewModel @Inject constructor(private val guideUseCase: GuideUseCase
 
     fun updateData(id: String, item: TravelAppModelItem) {
         viewModelScope.launch {
-            Log.d("Guide View", "$id,$item")
             guideUseCase.setBookMarkData(id, item).collectLatest { resource ->
                 when (resource) {
                     is Resource.Success -> {

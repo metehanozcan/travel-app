@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kenbu.travelapp.databinding.GuideScreenMightNeedTheseItemBinding
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
 import com.kenbu.travelapp.presentation.guide.GuideFragmentDirections
-import com.kenbu.travelapp.presentation.search.SearchFragmentDirections
 import com.kenbu.travelapp.utils.download
 
 

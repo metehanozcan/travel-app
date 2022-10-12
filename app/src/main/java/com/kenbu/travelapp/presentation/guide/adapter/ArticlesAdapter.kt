@@ -13,7 +13,8 @@ import com.kenbu.travelapp.presentation.guide.GuideFragmentDirections
 import com.kenbu.travelapp.utils.download
 
 
-class ArticlesAdapter(private val bookMarkCallBack :(TravelAppModelItem)->Unit) : RecyclerView.Adapter<ArticlesAdapter.ArticleVH>() {
+class ArticlesAdapter(private val bookMarkCallBack: (TravelAppModelItem) -> Unit) :
+    RecyclerView.Adapter<ArticlesAdapter.ArticleVH>() {
     class ArticleVH(val binding: GuideScreenArticlesItemBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -37,7 +38,11 @@ class ArticlesAdapter(private val bookMarkCallBack :(TravelAppModelItem)->Unit) 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleVH {
         val binding =
-            GuideScreenArticlesItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            GuideScreenArticlesItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         return ArticleVH(binding)
     }
 
@@ -49,7 +54,7 @@ class ArticlesAdapter(private val bookMarkCallBack :(TravelAppModelItem)->Unit) 
                 download(item.images[0].url)
             }
             articleCategoryTitle.text = item.title
-            articleTitle.text=item.description
+            articleTitle.text = item.description
             if (item.isBookmark) {
                 guideBookmarkButton.setIconResource(R.drawable.filled_bookmark_)
                 guideBookmarkButton.setIconTintResource(R.color.pink)

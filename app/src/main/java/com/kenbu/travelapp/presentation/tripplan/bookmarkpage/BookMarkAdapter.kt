@@ -61,6 +61,8 @@ class BookMarkAdapter(private val bookMarkCallBack: (TravelAppModelItem) -> Unit
             searchAttractionsTypeTextLayout.text = item.category
             topDestinationsCityTextLayout.text = item.city
             topDestinationsCountryText.text = item.country
+
+            //BOOKMARK BINDING LOGIC IMPLEMENTATION
             if (item.isBookmark) {
                 searchBookmarkButton.setIconResource(R.drawable.filled_bookmark_)
                 searchBookmarkButton.setIconTintResource(R.color.pink)
@@ -80,6 +82,7 @@ class BookMarkAdapter(private val bookMarkCallBack: (TravelAppModelItem) -> Unit
                 }
                 bookMarkCallBack(item)
             }
+            //NAV TO DETAILS PAGE
             holder.itemView.setOnClickListener {
                 Navigation.findNavController(it)
                     .navigate(

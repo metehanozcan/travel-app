@@ -2,8 +2,6 @@ package com.kenbu.travelapp.domain.usecase
 
 import android.util.Log
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
-import com.kenbu.travelapp.domain.model.TripPlanModel
-import com.kenbu.travelapp.domain.repository.TripPlanLocalRepository
 import com.kenbu.travelapp.domain.repository.TripPlanRepository
 import com.kenbu.travelapp.utils.Resource
 import kotlinx.coroutines.Dispatchers

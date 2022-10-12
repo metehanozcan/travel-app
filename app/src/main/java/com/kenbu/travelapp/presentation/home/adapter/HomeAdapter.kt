@@ -12,7 +12,7 @@ import com.kenbu.travelapp.presentation.home.HomeFragmentDirections
 import com.kenbu.travelapp.utils.download
 
 
-class HomeAdapter() : RecyclerView.Adapter<HomeAdapter.HomeVH>() {
+class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomeVH>() {
     class HomeVH(val binding: HomeScreenListItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     private var differCallBack = object : DiffUtil.ItemCallback<TravelAppModelItem>() {

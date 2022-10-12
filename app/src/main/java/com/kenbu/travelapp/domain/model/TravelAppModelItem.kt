@@ -2,7 +2,6 @@ package com.kenbu.travelapp.domain.model
 
 import android.os.Parcelable
 import androidx.room.Entity
-import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 import java.text.DateFormat
 
@@ -17,11 +16,11 @@ data class TravelAppModelItem(
     val images: List<TravelAppModelItemImage>,
     var isBookmark: Boolean,
     val title: String,
-    val dateIn:String?,
-    val dateOut:String?,
+    val dateIn: String?,
+    val dateOut: String?,
 //    @PrimaryKey(autoGenerate= true) val id_:Int = 0
-): Parcelable{
-    val createdDateFormatted:String
+) : Parcelable {
+    val createdDateFormatted: String
         get() = DateFormat.getDateInstance().format(dateIn)
 }
 

@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.kenbu.travelapp.domain.model.GuideModel
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
 import com.kenbu.travelapp.domain.usecase.GuideUseCase
-import com.kenbu.travelapp.domain.usecase.HomeUseCase
 import com.kenbu.travelapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
@@ -95,6 +94,7 @@ class GuideViewModel @Inject constructor(private val guideUseCase: GuideUseCase)
             }
         }
     }
+
     fun updateData(id: String, item: TravelAppModelItem) {
         viewModelScope.launch {
             Log.d("Guide View", "$id,$item")

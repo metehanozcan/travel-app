@@ -49,7 +49,7 @@ class DetailFragment : Fragment() {
         binding.button.setOnClickListener {
             travelList.isBookmark = true
             viewModel.viewModelScope.launch {
-                viewModel.updateData(travelList.id,travelList)
+                viewModel.updateData(travelList.id, travelList)
                 delay(500L)
             }
             Snackbar.make(

@@ -2,7 +2,6 @@ package com.kenbu.travelapp.data.remote
 
 import com.kenbu.travelapp.domain.model.GuideModel
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
-import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.*
@@ -37,12 +36,15 @@ interface ApiService {
     suspend fun getGuideCategories(): Response<ArrayList<GuideModel>>
 
     @PUT("AllTravelList/{id}")
-    suspend fun setItemBookMark(@Path("id") id: String, @Body item: TravelAppModelItem):Response<ResponseBody>
+    suspend fun setItemBookMark(
+        @Path("id") id: String,
+        @Body item: TravelAppModelItem
+    ): Response<ResponseBody>
 
     @GET("AllTravelList?isBookmark=true")
-    suspend fun getItemBookMark():Response<ArrayList<TravelAppModelItem>>
+    suspend fun getItemBookMark(): Response<ArrayList<TravelAppModelItem>>
 
     @GET("AllTravelList")
-    suspend fun getSearchItem(@Query("country")id:String):Response<ArrayList<TravelAppModelItem>>
+    suspend fun getSearchItem(@Query("country") id: String): Response<ArrayList<TravelAppModelItem>>
 
 }

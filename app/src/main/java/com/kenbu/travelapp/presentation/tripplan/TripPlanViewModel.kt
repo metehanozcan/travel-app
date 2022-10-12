@@ -5,5 +5,5 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class TripPlanViewModel @Inject constructor():ViewModel() {
+class TripPlanViewModel @Inject constructor() : ViewModel() {
 }

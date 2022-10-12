@@ -14,7 +14,6 @@ import androidx.lifecycle.viewModelScope
 import com.kenbu.travelapp.databinding.FragmentTripPlanBookmarkBinding
 import com.kenbu.travelapp.domain.model.TravelAppModelItem
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -22,7 +21,6 @@ class BookMarkFragment : Fragment() {
     private lateinit var binding: FragmentTripPlanBookmarkBinding
     private lateinit var bookMarkAdapter: BookMarkAdapter
     private val viewModel: BookMarkViewModel by viewModels()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,14 +36,13 @@ class BookMarkFragment : Fragment() {
         observeData()
     }
 
-
     private fun observeData() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect {
                     it.isLoading.let {
                         if (!it) {
-                            Log.d("BookMark Adapter", "tessssssss")
+                            Log.d("BookMark Adapter", "Test For Logic")
                         } else {
                             viewModel.getBookMarkData()
                         }
