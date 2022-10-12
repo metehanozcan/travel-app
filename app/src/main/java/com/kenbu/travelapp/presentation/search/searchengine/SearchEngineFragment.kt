@@ -47,7 +47,7 @@ class SearchEngineFragment : Fragment() {
             delay(1000L)
             viewModel.uiState.collect {
                 it.searchItem.let { list ->
-                    if (list!!.size == 0) {
+                    if (list?.size == 0 || list == null) {
                         binding.apply {
                             searchEngineText.visibility = View.VISIBLE
                             searchEngineErrorImage.visibility = View.VISIBLE
