@@ -35,14 +35,18 @@ class SearchEngineFragment : Fragment() {
         val searchString = args.searchString
         getData(searchString)
         recyclerViewSetup()
-//        observeData()
-
     }
 
+    /*
+    Kullanıcıdan alınan string parametresini api'ye gönderir.
+    Geri dönen liste ile arama sonuçlarını gösterir.
+    Makes api call for search paramaters
+    Returns Search List
+     */
     private fun getData(id: String) {
         viewModel.viewModelScope.launch {
             viewModel.getSearchData(id)
-            delay(600L)
+            delay(1000L)
             viewModel.uiState.collect {
                 it.searchItem.let { list ->
                     if (list!!.size == 0) {
@@ -57,25 +61,6 @@ class SearchEngineFragment : Fragment() {
                         }
                         searchEngineAdapter.differ.submitList(list)
                     }
-                }
-            }
-        }
-    }
-
-    private fun observeData() {
-        viewModel.viewModelScope.launch {
-            viewModel.uiState.collect {
-                it.isLoading.let {
-                    if (!it) {
-                        Log.d("test", "guide fragment loading")
-                    } else {
-                        Log.d("test2222", "guide fragment loading")
-                    }
-                }
-                it.searchItem.let { list ->
-                    Log.d("Search Engine", list.toString())
-                    searchEngineAdapter.differ.submitList(list)
-
                 }
             }
         }

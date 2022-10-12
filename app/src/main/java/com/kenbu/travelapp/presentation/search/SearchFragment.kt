@@ -42,6 +42,9 @@ class SearchFragment : Fragment() {
 
     }
 
+    /*
+    Updates Data From Api
+     */
     private fun observeData() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -60,6 +63,9 @@ class SearchFragment : Fragment() {
         }
     }
 
+    /*
+     Binding Init , RecyclerView Initialization
+     */
     private fun recyclerViewSetup() {
         nearByAdapter = NearbyAdapter(::setBookMark)
         topDestinationsAdapter = TopDestinationsAdapter()
@@ -85,6 +91,10 @@ class SearchFragment : Fragment() {
         }
     }
 
+    /*
+    Bookmark item Api CRUD
+    Bookmark api'ye istek gönderdiğimiz kısım
+     */
     private fun setBookMark(bookMark: TravelAppModelItem) {
         viewModel.updateData(bookMark.id, bookMark)
     }
