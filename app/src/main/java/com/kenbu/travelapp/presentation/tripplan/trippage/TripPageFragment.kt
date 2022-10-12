@@ -7,18 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.util.Pair
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.viewModelScope
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.snackbar.Snackbar
 import com.kenbu.travelapp.databinding.FragmentTripPageBinding
+import com.kenbu.travelapp.domain.model.TripPlanModel
+import com.kenbu.travelapp.presentation.tripplan.bookmarkpage.BookMarkAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.Date
 
 @AndroidEntryPoint
 class TripPageFragment : Fragment() {
     private lateinit var binding: FragmentTripPageBinding
-    //    private lateinit var tripPageAdapter: TripPageAdapter
-//    private val viewModel: TripPageViewModel by viewModels()
+    private var bundle = Bundle()
+    private val viewModel: TripPageViewModel by viewModels()
+    private lateinit var tripPageAdapter: TripPageAdapter
 
 
     override fun onCreateView(
@@ -32,69 +39,99 @@ class TripPageFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        recyclerViewSetup()
+        observeData()
+        initBindings()
+    }
+
+
+    private fun initBindings() {
+        var date1 = ""
+        var date2 = ""
+        var daysToStay = ""
+        val dateRange: MaterialDatePicker<Pair<Long, Long>> = MaterialDatePicker
+            .Builder
+            .dateRangePicker()
+            .setTitleText("Select a date")
+            .build()
 
         binding.floatingActionButton.setOnClickListener {
-
             binding.apply {
                 tripplanner.visibility = View.VISIBLE
                 pickDateButton.setOnClickListener {
-                    val dateRange: MaterialDatePicker<Pair<Long, Long>> = MaterialDatePicker
-                        .Builder
-                        .dateRangePicker()
-                        .setTitleText("Select a date")
-                        .build()
-
                     dateRange.show(parentFragmentManager, "DATE_RANGE_PICKER")
                     dateRange.addOnPositiveButtonClickListener {
-                        it.first    // first date
-                        it.second
-                        val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
-                        Log.d("Test Days","${(it.second-it.first)/(24*60*60*1000)}")
-                        val date = sdf.format(it.first)
-                        val date2 = sdf.format(it.second)// second date
-
-                        Log.d("Test Trip Page","$date $date2")
+                        try {
+                            it.first    // first date
+                            it.second
+                            val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+                            daysToStay = ((it.second - it.first) / (24 * 60 * 60 * 1000)).toString()
+                            date1 = sdf.format(it.first)
+                            date2 = sdf.format(it.second)
+                            Log.d("Test Trip Page", "$date1 $date2")
+                            pickDateButton.text = "$date1 + $date2"
+                            bundle.putString("date1", date1)
+                            bundle.putString("date2", date2)
+                            bundle.putString("daystostay", daysToStay)
+                        } catch (e: Exception) {
+                        }//
                     }
-
                 }
+                addTripButton.setOnClickListener {
+                    if (searchTextFieldEditText.text!!.length > 2 && date1.isNotBlank() && date2.isNotBlank() && daysToStay.isNotBlank()) {
+                        Snackbar.make(
+                            it,
+                            "Trip Saved",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                        binding.tripplanner.visibility = View.GONE
+                        viewModel.viewModelScope.launch {
+                            viewModel.saveTripListToLocalDb(
+                                TripPlanModel(
+                                    date1,
+                                    date2,
+                                    searchTextFieldEditText.text.toString(),
+                                    daysToStay
+                                )
+                            )
+                            delay(200L)
+                            viewModel.getAllProducts()
+                            delay(200L)
+                            observeData()
+                        }
+                    } else {
+                        Snackbar.make(
+                            it,
+                            "Please give valid date&name. At least 3 characters.",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        }
+    }
 
+    private fun observeData() {
+        viewModel.viewModelScope.launch {
+                viewModel.uiState.collect {
+                    it.isLoading.let {
+                        if (!it) {
+                        }
+                        else {
+                        }
+                    }
+                    Log.d("Test","ViewModel çağrıldı")
+                    viewModel.getAllProducts()
+                    it.tripItem.let { list ->
+                        tripPageAdapter.differ.submitList(list)
+                    }
+                }
             }
         }
 
-//        recyclerViewSetup()
-//        observeData()
+    private fun recyclerViewSetup() {
+        tripPageAdapter = TripPageAdapter()
+        binding.tripPageRecyclerview.adapter = tripPageAdapter
     }
 }
-
-//    private fun observeData() {
-//        lifecycleScope.launch {
-//            repeatOnLifecycle(Lifecycle.State.STARTED) {
-//                viewModel.uiState.collect {
-//                    it.isLoading.let {
-//                        if (!it) {
-//                            Log.d("BookMark Adapter", "tessssssss")
-//                        } else {
-//                            viewModel.getBookMarkData()
-//                        }
-//                    }
-//                    it.tripItem.let { list ->
-//                        Log.d("test", "BookMark Adapter")
-//                        tripPageAdapter.differ.submitList(list)
-//                    }
-//                }
-//            }
-//        }
-//    }
-
-//    private fun recyclerViewSetup() {
-//        tripPageAdapter = TripPageAdapter(::setBookMark)
-//        binding.bookmarkRecyclerview.adapter = tripPageAdapter
-//    }
-
-//    private fun setBookMark(bookMark: TravelAppModelItem) {
-//        viewModel.viewModelScope.launch {
-//            viewModel.updateData(bookMark.id, bookMark)
-//        }
-//    }
-//}
 

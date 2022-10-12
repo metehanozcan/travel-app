@@ -8,5 +8,5 @@ interface TripPlanLocalRepository {
     // ROOM METHODS
     suspend fun insertTrip(trip: TripPlanModel):Long
     suspend fun deleteTrip(trip: TripPlanModel)
-    fun getAllTrips(): LiveData<List<TripPlanModel>>
+    fun getAllTrips(): List<TripPlanModel>
 }

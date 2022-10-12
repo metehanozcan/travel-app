@@ -22,8 +22,6 @@ h
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-t
-Dapp/src/main/java/com/kenbu/travelapp/domain/model/TravelAppModel.kt,f\e\fe4b230d03989f815b24d3203d486e523dd50a9e
 n
 >app/src/main/java/com/kenbu/travelapp/utils/ImageDownloader.kt,d\9\d9af92d3cfef639b44db51125862a6092340d69a
 É
@@ -34,14 +32,10 @@ t
 Dapp/src/main/java/com/kenbu/travelapp/domain/usecase/GuideUseCase.kt,f\d\fd9e7573fd6fab87f04afcc6b763e0bd940cee38
 x
 Happ/src/main/java/com/kenbu/travelapp/presentation/guide/GuideUiState.kt,2\8\28e1b0bbd197c3a1dc366ca8c9ceca09c0375661
-x
-Happ/src/main/java/com/kenbu/travelapp/domain/model/TravelAppModelItem.kt,0\1\016eb71757d3fdf1dfac95a25c494f376666d8aa
 Ö
 Uapp/src/main/java/com/kenbu/travelapp/presentation/guide/adapter/CategoriesAdapter.kt,b\d\bd2a74b6db4f4d1646b4c7710155a20d5b322e06
 p
 @app/src/main/java/com/kenbu/travelapp/domain/model/GuideModel.kt,5\8\583332b00437e6c1b228372d58cd9b6d4d7376c2
-v
-Fapp/src/main/java/com/kenbu/travelapp/presentation/home/HomeUiState.kt,e\2\e25cc8802cc009bd9d06fb9e5e8e72b359262581
 ~
 Napp/src/main/java/com/kenbu/travelapp/presentation/home/adapter/HomeAdapter.kt,b\1\b1ea6b7ebe66ecc4e3558bad926a21c474f95611
 Ç
@@ -60,22 +54,12 @@ u
 Eapp/src/main/java/com/kenbu/travelapp/domain/usecase/SearchUseCase.kt,d\7\d78854c2d61ced6845ad6f084cc42ac4ffc77715
 |
 Lapp/src/main/java/com/kenbu/travelapp/presentation/search/SearchViewModel.kt,4\4\44b646bbba025d80230f7969acd93bd082e824bd
-y
-Iapp/src/main/java/com/kenbu/travelapp/presentation/guide/GuideFragment.kt,6\2\62b67826f95b3457ebfee6fd0e78e59fd03b2954
 Ñ
 Tapp/src/main/java/com/kenbu/travelapp/data/remote/repository/SearchRepositoryImpl.kt,6\7\679bae5f5f647098e7ac0688d0ca051ffdfd588c
-ã
-[app/src/main/java/com/kenbu/travelapp/presentation/tripplan/bookmarkpage/BookMarkAdapter.kt,3\1\31da74858553d0d61ef88f6b9082c12e3f7bccea
-å
-\app/src/main/java/com/kenbu/travelapp/presentation/tripplan/bookmarkpage/BookMarkFragment.kt,0\c\0c899be8c5adafb388b21c5971f83904d8ea6e47
-ç
-]app/src/main/java/com/kenbu/travelapp/presentation/tripplan/bookmarkpage/BookMarkViewModel.kt,2\4\24873931b5ca97d8f475c08011b4110f3fd7d1e7
 ç
 ]app/src/main/java/com/kenbu/travelapp/presentation/search/searchengine/SearchEngineAdapter.kt,8\d\8deed3a9973369415641bce478dae99150eb1629
 é
 ^app/src/main/java/com/kenbu/travelapp/presentation/search/searchengine/SearchEngineFragment.kt,c\c\cc5ab1e6288d209e03593ebf61c8346672aa749f
-{
-Kapp/src/main/java/com/kenbu/travelapp/presentation/search/SearchFragment.kt,f\9\f940ac97e80cd58e08080f7d788e71e9819e75f6
 è
 _app/src/main/java/com/kenbu/travelapp/presentation/search/searchengine/SearchEngineViewModel.kt,0\2\02090df40afbfadcf5cb7fafeb1b09217a6c0572
 ç

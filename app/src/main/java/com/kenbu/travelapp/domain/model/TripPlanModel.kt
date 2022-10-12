@@ -11,5 +11,6 @@ data class TripPlanModel(
     @PrimaryKey(autoGenerate = false)
     var departureDate:String,
     var returnDate:String,
-    var destination:String
+    var destination:String,
+    var dayToStay:String
 ):Parcelable

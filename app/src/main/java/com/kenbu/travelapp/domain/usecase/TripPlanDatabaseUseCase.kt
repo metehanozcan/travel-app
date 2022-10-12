@@ -40,7 +40,7 @@ class TripPlanDatabaseUseCase @Inject constructor(private val tripPlanLocalRepos
         } catch (e: Exception) {
             emit(Resource.Error(e.localizedMessage))
         }
-    }.flowOn(Dispatchers.IO)
+    }.flowOn(Dispatchers.Default)
 
 
 }

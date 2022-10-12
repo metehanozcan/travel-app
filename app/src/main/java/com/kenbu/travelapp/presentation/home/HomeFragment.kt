@@ -46,22 +46,27 @@ class HomeFragment : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { state ->
                     binding.apply {
-                        tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-                            override fun onTabSelected(tab: TabLayout.Tab?) {
-                                when (tabs.selectedTabPosition) {
-                                    0 -> adapter.differ.submitList(state.homeItems)
-                                    1 -> adapter.differ.submitList(state.categoryFlightItems)
-                                    2 -> adapter.differ.submitList(state.categoryHotelItems)
-                                    3 -> adapter.differ.submitList(state.categoryTransportationItems)
-                                    else -> adapter.differ.submitList(state.homeItems)
-                                }
-                            }
-                            override fun onTabReselected(tab: TabLayout.Tab?) {
-                            }
 
-                            override fun onTabUnselected(tab: TabLayout.Tab?) {
-                            }
-                        })
+
+
+
+
+//                        tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+//                            override fun onTabSelected(tab: TabLayout.Tab?) {
+//                                when (tabs.selectedTabPosition) {
+//                                    0 -> adapter.differ.submitList(state.homeItems)
+//                                    1 -> adapter.differ.submitList(state.categoryFlightItems)
+//                                    2 -> adapter.differ.submitList(state.categoryHotelItems)
+//                                    3 -> adapter.differ.submitList(state.categoryTransportationItems)
+//                                    else -> adapter.differ.submitList(state.homeItems)
+//                                }
+//                            }
+//                            override fun onTabReselected(tab: TabLayout.Tab?) {
+//                            }
+//
+//                            override fun onTabUnselected(tab: TabLayout.Tab?) {
+//                            }
+//                        })
                     }
                 }
             }

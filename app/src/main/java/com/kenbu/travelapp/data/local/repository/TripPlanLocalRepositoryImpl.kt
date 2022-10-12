@@ -12,5 +12,5 @@ class TripPlanLocalRepositoryImpl(private val localData:TripPlanDAO ):TripPlanLo
 
     override suspend fun deleteTrip(trip: TripPlanModel) = localData.deleteTrip(trip)
 
-    override fun getAllTrips(): LiveData<List<TripPlanModel>> = localData.getAllTrips()
+    override fun getAllTrips(): List<TripPlanModel> = localData.getAllTrips()
 }
